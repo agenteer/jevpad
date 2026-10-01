@@ -6,6 +6,8 @@ A scratchpad for Jev questions: write the questions you want answered about a pi
 
 jevpad is an open-source project by [Agenteer](https://agenteer.com), built on TypeSafe's Python library. It is not a TypeSafe product.
 
+Tutorial: [Jev AI Full Tutorial: From First Try to Real Applications](https://agenteer.com/resources/jev-ai-full-tutorial/).
+
 ## Install
 
 You need Python 3.11 or later and [uv](https://docs.astral.sh/uv/).
