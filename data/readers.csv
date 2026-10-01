@@ -1,0 +1,11 @@
+id,description
+dental_office,"I run a five-person dental office. We miss calls while we're with patients, and too many people don't show up for appointments. I don't write code, and I have about an afternoon a week for this."
+support_developer,I'm a backend developer and I have to ship a customer-support agent this month. I want hands-on guides I can follow and adapt.
+ops_lead,"I lead operations at a mid-sized company. Before we let AI agents act for us, I want to understand what could go wrong, what they could leak, and how to keep control."
+marketing_agency,"I run a small marketing agency with six people. I want repeatable AI workflows for client content, and we check quality before anything goes out. We're comfortable with tools but don't write code."
+student,I'm a student starting to learn how AI agents work. I can write a little Python but have never built anything for production. I want to understand the ideas before I build.
+restaurant,"I own a busy neighbourhood restaurant. I want help with reservations, the phone during the dinner rush, and replying to online reviews. I'm not technical and would rather buy a tool than build one."
+solo_builder,I'm a developer who builds AI agents on weekends. I want to run them cheaply on my own server and keep my setup tidy.
+ecommerce_shop,I run an online shop selling homeware. Customer emails about orders and returns take hours every day. I'd like the routine ones answered for me and the tricky ones sent to me.
+real_estate_agent,I'm a solo real estate agent. Leads come in at all hours and I lose some because I follow up too late. I work from my phone more than my laptop.
+accounting_firm,"I'm a partner at a 12-person accounting firm. We spend too much time on client intake and chasing missing documents. Our client data is confidential, so I need to know where it goes."

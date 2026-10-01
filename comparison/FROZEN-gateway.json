@@ -1,0 +1,22 @@
+{
+  "frozen_utc": "2026-09-29T18:37:54+00:00",
+  "git_commit": "40addb69589d811714f4db4218ee7c5aaf4d3d04",
+  "git_commit_note": "HEAD when the freeze was computed; the freeze file itself lands in the next commit.",
+  "variant": "both-via-gateway, declared and frozen on 2026-09-29 (UTC) before any test call",
+  "declared_before_any_test_call": true,
+  "sha256": {
+    "config-gateway.json": "e964520bd6976d043e80640a6d422f1e47be9254896fae9434a7495f5e1e733d",
+    "manifest.json": "2fde974c8d269b3b85c3518d9fcf3d86b5e9c003d140e9069c0f883a30ded947",
+    "run.py": "08dc9d85b006d0a800bfe71c13ab56c5791844518308c6cc6cabe26cb973a9c5",
+    "rerun_via_gateway.py": "3542a51059fbebcae0538f725cf847a479c489c322d7ff0a6bdfa2c981617ddf"
+  },
+  "also_recorded_sha256": {
+    "score.py": "5cac164d6371550e552c10e0823a9289e14ee58ca454d57728768ef63c95c6ee",
+    "score_gateway.py": "d7986b4361fd6da3cda31195fc65136dda224b4dc3d0bc9c458eb043203d8566",
+    "ANALYSIS_PLAN.md": "9ebac4cffa134365f526784affb557bdaaebd776595f948015740be1155c03a6",
+    "config.json": "73d1ac71ac8dc21c31234efb403a03d590c0c876bf638c217ce328458a5d3d34",
+    "FROZEN.json": "fffb686fb36ce7bbc268228b40923c4ea963b728552ac3abe073ee9329aac172"
+  },
+  "plan": "Same scoring as ANALYSIS_PLAN.md. Gateway test passes are numbered from 3 so they never collide with the Sep 24-25 passes 1-2; pass 3 is this variant's headline and pass 4, if run, is its repeat. Both models go through Vercel AI Gateway with one key; GPT-5.4-mini is pinned to the OpenAI provider.",
+  "note": "Frozen before any both-via-gateway test-split call. FROZEN.json and the files it hashes are unchanged."
+}

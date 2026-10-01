@@ -1,0 +1,18 @@
+# The reading list: Jev scores every article (data/academy-articles.csv) for every reader (data/readers.csv).
+# Each call sends one reader's own description as `reader`, plus one article's `title` and `description`.
+# The same two questions serve every reader; the reader's description is what makes each list personal.
+# To add yourself, add a row to data/readers.csv: a short id and a few plain sentences about you.
+questions:
+  relevance:
+    type: score
+    instructions: How relevant is this article, judged by its `title` and `description`, to the person who describes themselves in `reader`? Use only the supplied text.
+    levels:
+      - "Not relevant: written for a different reader or a different need."
+      - "Slightly relevant: related, but mostly background for this person."
+      - "Relevant: helpful to this person, though not about their main need."
+      - "Most relevant: speaks directly to this person's situation and goals."
+  # Display only: shown next to the score; the order and the label use relevance alone (recipes/reading/policy.py).
+  opinion_or_overview:
+    type: noul
+    instructions: Is this mainly an opinion or overview piece rather than a hands-on guide?
+    criteria: Essays, frameworks, market overviews and analyses are yes. Step-by-step guides the reader follows to build or set something up are no.

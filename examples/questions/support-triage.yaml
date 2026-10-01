@@ -1,0 +1,22 @@
+# Example questions for: jevpad run --questions examples/questions/support-triage.yaml --text "..."
+# Each input is sent as state {"message": <text>}, so the instructions refer to `message`.
+# Types: choice (options), noul (yes/no, optional criteria), score (levels). Copy this file and edit it.
+team:
+  type: choice
+  instructions: Which team should review `message` based on its main request?
+  options:
+    billing: Payment, invoice, charge, or refund questions.
+    technical_support: Product errors, access problems, or troubleshooting.
+    sales: Pricing and plan questions, including changing to a different plan, whether or not the person is already a customer.
+    other: No listed team clearly fits the request.
+requests_refund:
+  type: noul
+  instructions: Does the message explicitly ask for money back?
+  criteria: Answer yes only for an explicit request to return money; honor negation.
+urgency:
+  type: score
+  instructions: How urgent is the operational need in the message?
+  levels:
+    - Informational or no stated time pressure.
+    - Time-sensitive, but normal work can continue.
+    - A blocked operation or deadline today needs prompt attention.

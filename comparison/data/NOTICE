@@ -1,0 +1,5 @@
+BANKING77 dataset notice
+
+These files, the messages in ../manifest.json and the intent labels in ../results/ come from BANKING77 (https://github.com/PolyAI-LDN/task-specific-datasets, commit 57ec275) by PolyAI, introduced by Casanueva et al. (2020), "Efficient Intent Detection with Dual Sentence Encoders." BANKING77 is provided under the Creative Commons Attribution 4.0 International license reproduced in LICENSE.
+
+This project uses a fixed sample of these messages for an educational comparison. PolyAI and the BANKING77 authors do not endorse this project.

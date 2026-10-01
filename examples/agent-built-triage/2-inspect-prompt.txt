@@ -1,0 +1,1 @@
+Show me exactly what you send Jev: the questions, the team descriptions and the urgency levels. Then walk me through one message from the live run: the text, what Jev answered, and which rule picked the next step. Which parts are Jev's judgment, and which come from your rules? Finally, try a message that doesn't clearly fit any team and show me what happens.

@@ -1,0 +1,1 @@
+Messages like M07 say the issue is already resolved, so no reply is needed. I don't want them to go to the general queue. Give messages like that their own next step, "no reply needed". Make that one change and leave everything else as it is. Then rerun the ten messages and show me each message with its original next step and its new one.

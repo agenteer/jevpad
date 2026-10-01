@@ -1,0 +1,54 @@
+{
+  "variant": "both-via-gateway, declared and frozen on 2026-09-29 (UTC) before any test call",
+  "instruction": "Which banking customer-support intent does this customer message express? Choose the single best label.",
+  "timeout_s": 30,
+  "concurrency": 1,
+  "order": "alternating per example: even index Jev first, odd index LLM first",
+  "jev": {
+    "endpoint": "https://ai-gateway.vercel.sh/typesafe/v1/systemone",
+    "model": "typesafe-ai/jev",
+    "provider_only": [
+      "typesafe-ai"
+    ],
+    "catalog_price_per_million": {
+      "input": 0.042,
+      "output": 0,
+      "source": "https://docs.typesafe.ai/models",
+      "checked": "2026-09-24",
+      "note": "billed through Vercel AI Gateway at promotional $0 until 2026-09-25; the gateway also reports marketCost per call"
+    }
+  },
+  "llm": {
+    "endpoint": "https://ai-gateway.vercel.sh/v1/chat/completions",
+    "model": "openai/gpt-5.4-mini",
+    "provider_only": [
+      "openai"
+    ],
+    "reasoning_effort": "none",
+    "max_completion_tokens": 512,
+    "system": "You classify customer messages sent to a bank's support team. Pick exactly one intent label from the allowed values. Reply with JSON only.",
+    "price_per_million": {
+      "input": 0.75,
+      "cached_input": 0.075,
+      "output": 4.5,
+      "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini (confirmed in docs/research/SOURCE_REFRESH_2026-09-24.md; Vercel AI Gateway lists the same price)",
+      "checked": "2026-09-24",
+      "note": "prompts are ~490-545 tokens, below the 1,024-token prompt-caching floor, so the cached rate does not apply"
+    },
+    "note": "called through Vercel AI Gateway's OpenAI-compatible endpoint, pinned to the OpenAI provider (sent as providerOptions.gateway.only = [\"openai\"]), so both models now use the same gateway, the same key and the same retry policy. The Sep 24-25 passes called api.openai.com directly because the free-tier gateway returned 403 for this model; the owner's gateway account now has paid credits. Vercel lists the same per-token price as OpenAI with no markup, so price_per_million is unchanged. Only the route differs from config.json."
+  },
+  "retry_policy": {
+    "applies_to": "both models identically",
+    "retry_on": "HTTP 429, 500, 502, 503, 504, timeouts and connection errors",
+    "max_attempts": 6,
+    "backoff_s": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "honor_retry_after": true,
+    "max_wait_s": 30
+  }
+}

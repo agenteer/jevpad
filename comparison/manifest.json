@@ -1,0 +1,2178 @@
+{
+ "dataset": "BANKING77 (Casanueva et al., 2020)",
+ "source": "https://github.com/PolyAI-LDN/task-specific-datasets",
+ "commit": "57ec275d8078af65b7731c2a98be812d844a6d6b",
+ "license": "CC-BY-4.0",
+ "file_sha256": {
+  "train.csv": "b06e26ac675513959a63135f11b94ea7786ed02da65db93a5650d8838cbc664b",
+  "test.csv": "d12d6e3bc4c3103966ae786dc435913c0c563dfa328f5a3646d0e62cfeeb474d",
+  "categories.json": "53261da888122daf2d120d925458631d9619e15d82e56052e7a42e535ce32b63",
+  "LICENSE": "7e7170e3cebf88a9f60c7b8421418323c09304da1af4d5e90f4da1dc1c8a2661"
+ },
+ "seed": 20260924,
+ "selection": "stratified: 1 per label from train.csv (dev), 2 per label from test.csv (test); labels iterated in sorted order, random.Random(seed).sample within each label",
+ "labels": [
+  "card_arrival",
+  "card_linking",
+  "exchange_rate",
+  "card_payment_wrong_exchange_rate",
+  "extra_charge_on_statement",
+  "pending_cash_withdrawal",
+  "fiat_currency_support",
+  "card_delivery_estimate",
+  "automatic_top_up",
+  "card_not_working",
+  "exchange_via_app",
+  "lost_or_stolen_card",
+  "age_limit",
+  "pin_blocked",
+  "contactless_not_working",
+  "top_up_by_bank_transfer_charge",
+  "pending_top_up",
+  "cancel_transfer",
+  "top_up_limits",
+  "wrong_amount_of_cash_received",
+  "card_payment_fee_charged",
+  "transfer_not_received_by_recipient",
+  "supported_cards_and_currencies",
+  "getting_virtual_card",
+  "card_acceptance",
+  "top_up_reverted",
+  "balance_not_updated_after_cheque_or_cash_deposit",
+  "card_payment_not_recognised",
+  "edit_personal_details",
+  "why_verify_identity",
+  "unable_to_verify_identity",
+  "get_physical_card",
+  "visa_or_mastercard",
+  "topping_up_by_card",
+  "disposable_card_limits",
+  "compromised_card",
+  "atm_support",
+  "direct_debit_payment_not_recognised",
+  "passcode_forgotten",
+  "declined_cash_withdrawal",
+  "pending_card_payment",
+  "lost_or_stolen_phone",
+  "request_refund",
+  "declined_transfer",
+  "Refund_not_showing_up",
+  "declined_card_payment",
+  "pending_transfer",
+  "terminate_account",
+  "card_swallowed",
+  "transaction_charged_twice",
+  "verify_source_of_funds",
+  "transfer_timing",
+  "reverted_card_payment?",
+  "change_pin",
+  "beneficiary_not_allowed",
+  "transfer_fee_charged",
+  "receiving_money",
+  "failed_transfer",
+  "transfer_into_account",
+  "verify_top_up",
+  "getting_spare_card",
+  "top_up_by_cash_or_cheque",
+  "order_physical_card",
+  "virtual_card_not_working",
+  "wrong_exchange_rate_for_cash_withdrawal",
+  "get_disposable_virtual_card",
+  "top_up_failed",
+  "balance_not_updated_after_bank_transfer",
+  "cash_withdrawal_not_recognised",
+  "exchange_charge",
+  "top_up_by_card_charge",
+  "activate_my_card",
+  "cash_withdrawal_charge",
+  "card_about_to_expire",
+  "apple_pay_or_google_pay",
+  "verify_my_identity",
+  "country_support"
+ ],
+ "counts": {
+  "dev": 77,
+  "test": 154
+ },
+ "examples": [
+  {
+   "source_file": "train.csv",
+   "row_index": 5677,
+   "text": "I requested a refund but am unable to see it in my account. Why is that?",
+   "label": "Refund_not_showing_up",
+   "split": "dev",
+   "text_sha256": "8aa41faf08941cce561dd982429110b5db7d8bdca0ac56ed6f0a724bf80c08ab",
+   "example_id": "dev-000"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 9318,
+   "text": "What steps do I have to go through in order to activate my new card?",
+   "label": "activate_my_card",
+   "split": "dev",
+   "text_sha256": "91d3e510811170770c13fd7d47d37671fb1c0218fef24158389b5cdcdba075d1",
+   "example_id": "dev-001"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 1637,
+   "text": "How many years old do I have to be?",
+   "label": "age_limit",
+   "split": "dev",
+   "text_sha256": "eeb909fe5ac9e803a25ee9f27fa2df580d29f10fa64d3af7e85db51f6d7ad52a",
+   "example_id": "dev-002"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 9733,
+   "text": "How can I top up with my apple watch?",
+   "label": "apple_pay_or_google_pay",
+   "split": "dev",
+   "text_sha256": "484ae42b1f0a02675c1fcd27b39cab2eae58f3a34160f1c76b82049f574ac99c",
+   "example_id": "dev-003"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 4563,
+   "text": "Are there specific ATM's that I can draw money from?",
+   "label": "atm_support",
+   "split": "dev",
+   "text_sha256": "1836574c8ac2e0420a75428f365eed3cf10677730b20253f4a5d5c80a551d751",
+   "example_id": "dev-004"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 1189,
+   "text": "I want to auto top-up.",
+   "label": "automatic_top_up",
+   "split": "dev",
+   "text_sha256": "645e9ed25a396b5bc3e7dbe42f94dcc955e16cf0347e50f9b0fd736182a6cb06",
+   "example_id": "dev-005"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 8758,
+   "text": "How long does it take for money to transfer as my balance hasn't been updated",
+   "label": "balance_not_updated_after_bank_transfer",
+   "split": "dev",
+   "text_sha256": "4452ca34ec17ba7b7da53f8a055c857e7adb28b87dae7d95f23150a5ec396302",
+   "example_id": "dev-006"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 3315,
+   "text": "I placed a cash deposit in my account but I can't see it yet.",
+   "label": "balance_not_updated_after_cheque_or_cash_deposit",
+   "split": "dev",
+   "text_sha256": "ddc177a493e474e87f3650d3da4b54449d9183ec99895cc59c920d3a08be640c",
+   "example_id": "dev-007"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 7114,
+   "text": "Can you please explain why my beneficiary is not allowed?",
+   "label": "beneficiary_not_allowed",
+   "split": "dev",
+   "text_sha256": "f8ebdd3104131de6d1effd8d65cde44a937bb2c447958a89ae977e8540ff3478",
+   "example_id": "dev-008"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 2148,
+   "text": "I need to reverse a transaction",
+   "label": "cancel_transfer",
+   "split": "dev",
+   "text_sha256": "a5994aba483336d595c430ecb3cfc4aac4b3d7238986c05e1e98b0c752d20efc",
+   "example_id": "dev-009"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 9609,
+   "text": "Do I need to re-apply to order a new card when my old one's about to expire?",
+   "label": "card_about_to_expire",
+   "split": "dev",
+   "text_sha256": "2302203241a7cc9e480582a148784e90aeab0e83e9bc9e6438033efe6cd652ed",
+   "example_id": "dev-010"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 3144,
+   "text": "Will my card work at all merchant locations?",
+   "label": "card_acceptance",
+   "split": "dev",
+   "text_sha256": "0f4f15936606df93b77974dbf9a4cb0ae3eb0c794875ad126d2885521f8b01ea",
+   "example_id": "dev-011"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 113,
+   "text": "I'm still waiting for my card that was issued a week ago. What should I do?",
+   "label": "card_arrival",
+   "split": "dev",
+   "text_sha256": "0fa80c83b151aae03b0f1eca90369539ff9ed7f819c036ad71970660639338d2",
+   "example_id": "dev-012"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 1102,
+   "text": "Please send my card as quickly as possible.",
+   "label": "card_delivery_estimate",
+   "split": "dev",
+   "text_sha256": "64976301dfa610fb6d81c12f355a269649e4a3d2576032a627301e07dca08650",
+   "example_id": "dev-013"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 290,
+   "text": "My new card isn't in my app, how do I get it in there?",
+   "label": "card_linking",
+   "split": "dev",
+   "text_sha256": "4e1a0dab10f6649db3c19e37184b77c03ac55dcdf571be5f4f8ace4217344d01",
+   "example_id": "dev-014"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 1287,
+   "text": "Suddenly, my card won't work.",
+   "label": "card_not_working",
+   "split": "dev",
+   "text_sha256": "906afe825c9f890b48ab05f236f4a9b5e8035ae2dbc48271cff90fcc0b4d50b4",
+   "example_id": "dev-015"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 2599,
+   "text": "My card is showing a fee from when I used it, but I thought this card was supposed to be fee free?",
+   "label": "card_payment_fee_charged",
+   "split": "dev",
+   "text_sha256": "dad3cea5dc53c73117aef0b85173d953e323b72d4528be12923172dbea795898",
+   "example_id": "dev-016"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 3595,
+   "text": "There is a payment with my card which i definitely did not do.",
+   "label": "card_payment_not_recognised",
+   "split": "dev",
+   "text_sha256": "4a6805425a50ee952b20f2918c29bfb75027c5ebcda7584da2d6334f161e602c",
+   "example_id": "dev-017"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 542,
+   "text": "When I bought something abroad, the exchange rate was wrong.",
+   "label": "card_payment_wrong_exchange_rate",
+   "split": "dev",
+   "text_sha256": "ca976e24202a4b15d63943d58239dab15e2764664aebdbbceadb718560662aad",
+   "example_id": "dev-018"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 6260,
+   "text": "The ATM won't give me my card back. I need it back now!",
+   "label": "card_swallowed",
+   "split": "dev",
+   "text_sha256": "6e90b5f5a0923724089857cf6778b1a3ac93005866ffc5fb77f71660528bcaa5",
+   "example_id": "dev-019"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 9352,
+   "text": "Why was there a fee for my cash withdrawal?",
+   "label": "cash_withdrawal_charge",
+   "split": "dev",
+   "text_sha256": "ce18e31ef5d44a69e599fea36bfede9db1b206287e3d6e33e1b094a39d3d7c8d",
+   "example_id": "dev-020"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 8851,
+   "text": "I hope you can help me. Someone has stolen my wallet and now I have noticed that they have been taking money from my account.",
+   "label": "cash_withdrawal_not_recognised",
+   "split": "dev",
+   "text_sha256": "76b5b3e6b91aa7f88a2fa0166b072a47e685d7d34461058531c5a783cba10ece",
+   "example_id": "dev-021"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 6909,
+   "text": "Can I change my PIN?",
+   "label": "change_pin",
+   "split": "dev",
+   "text_sha256": "cb410f15fe6915884a9a99263fd272154220badbd7999c63a15e122327918a3f",
+   "example_id": "dev-022"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 4493,
+   "text": "There's a possibility that my card was compromised.",
+   "label": "compromised_card",
+   "split": "dev",
+   "text_sha256": "e0e9f4ed53854b63f982c72ee9086efa1553ccfbeba5855bd48f8b21bb1b9ed8",
+   "example_id": "dev-023"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 1784,
+   "text": "Why is my contactless not working?",
+   "label": "contactless_not_working",
+   "split": "dev",
+   "text_sha256": "af97ba9682889baa7323626965398c2665fc2170439c0eef5a3c0c3685118f74",
+   "example_id": "dev-024"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 9896,
+   "text": "How does a US resident go about acquiring a new card?",
+   "label": "country_support",
+   "split": "dev",
+   "text_sha256": "85712f6e3d3db2161c6bd2ba6e8038559c5707e77177e0abc12b2cf210662bf1",
+   "example_id": "dev-025"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 5987,
+   "text": "My card payment was not successful.",
+   "label": "declined_card_payment",
+   "split": "dev",
+   "text_sha256": "505efe448f48d87fd4fd65e374df40986faa54bd2c8227448cf365cfc94ffc08",
+   "example_id": "dev-026"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 5013,
+   "text": "I cant get money out of the ATM with my card.  I just put my card in the ATM but it will not allow me to take any money out.  What do I need to do to fix this?",
+   "label": "declined_cash_withdrawal",
+   "split": "dev",
+   "text_sha256": "4e0d3f23e386d446a504b9f779eb2ec436f6996d986438a83c23eb85e54aec08",
+   "example_id": "dev-027"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 5661,
+   "text": "Help me. My transfer was declined. How could this happen?",
+   "label": "declined_transfer",
+   "split": "dev",
+   "text_sha256": "1776fe9f48f982e54ba28bf55771ce80b8ab8650157c27ba2671156dc901f70c",
+   "example_id": "dev-028"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 4715,
+   "text": "The app is showing a direct debit payment that I never made",
+   "label": "direct_debit_payment_not_recognised",
+   "split": "dev",
+   "text_sha256": "0fea69f84e79233fa48fbba5d426e88f650ed86278713483683a5e03abd66e8e",
+   "example_id": "dev-029"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 4347,
+   "text": "How many disposable cards am I allowed to have?",
+   "label": "disposable_card_limits",
+   "split": "dev",
+   "text_sha256": "495d15bd820db75f29f2620823d933107f0b46929ee607905f8e1af3ef0e7b0d",
+   "example_id": "dev-030"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 3682,
+   "text": "I just had a wedding and I want to take my spouses name.",
+   "label": "edit_personal_details",
+   "split": "dev",
+   "text_sha256": "3786e0e02c4d32c94f7dfadec16cf3892761068f7d3f0688fcdd11e85fe22f2a",
+   "example_id": "dev-031"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 9003,
+   "text": "Is there a fee for currency exchange?",
+   "label": "exchange_charge",
+   "split": "dev",
+   "text_sha256": "b01d2af5287147ee7664cb1d2aaa23e25a34745082f324827c9427b5ad3be598",
+   "example_id": "dev-032"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 320,
+   "text": "Where are you getting your exchange rates from?",
+   "label": "exchange_rate",
+   "split": "dev",
+   "text_sha256": "91755074abf20ee732e9b6f486178c122545c7d738691f284a1451484c4d5429",
+   "example_id": "dev-033"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 1421,
+   "text": "If I need to make an exchange from USD to GBP, how can I do so in the app?",
+   "label": "exchange_via_app",
+   "split": "dev",
+   "text_sha256": "cbb99c6b75d5fbaee7b457d3a61bccddcddfa25be63bbdd014e41f6498996df1",
+   "example_id": "dev-034"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 724,
+   "text": "My statement is showing an extra £1 charge and I am unsure why. Is there an explanation for this?",
+   "label": "extra_charge_on_statement",
+   "split": "dev",
+   "text_sha256": "f1fd7cf90281642bf51652d4e7ef664f4e0ece6b19e1eb3bb59dc76538e1d67b",
+   "example_id": "dev-035"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 7554,
+   "text": "Why did the bank reject my transfer?",
+   "label": "failed_transfer",
+   "split": "dev",
+   "text_sha256": "4e83789b044f9f7946fd8028ff929902a608ac629aed28292e8928b7d535b086",
+   "example_id": "dev-036"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 988,
+   "text": "Do you have EUR currency available for me?",
+   "label": "fiat_currency_support",
+   "split": "dev",
+   "text_sha256": "f64e72ec17448d0cad66dc23d87eece6b476ecd2bf40350fdc8fbf851541226c",
+   "example_id": "dev-037"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 8429,
+   "text": "Can you provide me a disposable virtual card?",
+   "label": "get_disposable_virtual_card",
+   "split": "dev",
+   "text_sha256": "4729df02f7e2dddcc649b85edb7ca78696f49c914652b0e4dc351147a3bbc0f2",
+   "example_id": "dev-038"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 4051,
+   "text": "Can you tell me how to locate my PIN?",
+   "label": "get_physical_card",
+   "split": "dev",
+   "text_sha256": "a4261452c8e3c46b44e63c4e0f2b10495b240b0dc506628c5afb5d81df0e788f",
+   "example_id": "dev-039"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 7914,
+   "text": "I would like to give another card to my daughter, how can I proceed?",
+   "label": "getting_spare_card",
+   "split": "dev",
+   "text_sha256": "78ea26e01d9ed629e1bae35fd147988f92df00bef64288f3345754fdaf1f704d",
+   "example_id": "dev-040"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 3055,
+   "text": "Can you assist me in acquiring a virtual card?",
+   "label": "getting_virtual_card",
+   "split": "dev",
+   "text_sha256": "42682759288e2f3ed797a38c38e569b184dd04acf64925b8f2c6491260f1247d",
+   "example_id": "dev-041"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 1510,
+   "text": "What do I do if my card is stolen?",
+   "label": "lost_or_stolen_card",
+   "split": "dev",
+   "text_sha256": "79c1638dce491ccb8327eb21d40b1cc5189ed1bdf5f2e2e7929d461c69ce84ca",
+   "example_id": "dev-042"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 5255,
+   "text": "I think I lost my phone.  Is there a way to prevent anyone from getting into my account on it?",
+   "label": "lost_or_stolen_phone",
+   "split": "dev",
+   "text_sha256": "78c071dd4a3905e2f544ca01c83151c508659594174bb6b45276c008dfd5bb7c",
+   "example_id": "dev-043"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 8151,
+   "text": "Where are cards available to order?",
+   "label": "order_physical_card",
+   "split": "dev",
+   "text_sha256": "179d602a1a36f66281c9c871c573bdaee791074986627d2307aef836007726f9",
+   "example_id": "dev-044"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 4885,
+   "text": "What should I do if my passcode won't work?",
+   "label": "passcode_forgotten",
+   "split": "dev",
+   "text_sha256": "42360b96401e2fe3786ef370e195a4607745ceb68d2ba69bbc3f1d74b490fb56",
+   "example_id": "dev-045"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 5134,
+   "text": "Why is the payment on my card still pending?",
+   "label": "pending_card_payment",
+   "split": "dev",
+   "text_sha256": "6b0a66ea861c3a84e642c982fd3937ea9efc9ebace0cb90e94c5e292f8f3af02",
+   "example_id": "dev-046"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 877,
+   "text": "I needed cash today, so I used another provider's ATM, and when I attempted to withdraw, it declined. I just checked it out and I'm still showing my account with that amount pending! I didn't take any money out, it was declined, so I don't want that to be processed as a withdrawal.",
+   "label": "pending_cash_withdrawal",
+   "split": "dev",
+   "text_sha256": "19683552fb1bc8db7cc99847014fa6b8e16a550dadaf041d376d0e9f774fbfb8",
+   "example_id": "dev-047"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 2028,
+   "text": "I tried topping up for the first time today since I am a new customer. It doesn't appear that it's working. It has been pending for at least half an hour. Please take care of this.",
+   "label": "pending_top_up",
+   "split": "dev",
+   "text_sha256": "cb439e2efd1f0505f94ea38f50d4a14f04335a8956cc0445c4d69e94fb5daf40",
+   "example_id": "dev-048"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 6094,
+   "text": "How long do EU transfers take? I bought something online a couple of days ago , sent the money immediately online but the seller says it is still not there yet.",
+   "label": "pending_transfer",
+   "split": "dev",
+   "text_sha256": "91589ce3af27d763b5878410161ac70c11156ae652e67399b4ff33b158504a0c",
+   "example_id": "dev-049"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 1682,
+   "text": "I tried my PIN too many times and now my card won't work!",
+   "label": "pin_blocked",
+   "split": "dev",
+   "text_sha256": "74ade53af3e6ae4df4b65ab9ad4215bd850ce7b8824626aaf9b1c429e3e65924",
+   "example_id": "dev-050"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 7397,
+   "text": "Can I transfer my paycheck to the account?",
+   "label": "receiving_money",
+   "split": "dev",
+   "text_sha256": "3336cf06978dc54c9a0063586d9e9fa777cdeced5f97cba3c133f3464304237a",
+   "example_id": "dev-051"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 5442,
+   "text": "I want a refund for my item",
+   "label": "request_refund",
+   "split": "dev",
+   "text_sha256": "a48199dd021df9a480f6e0d1b04fa226105ddd0fd90d869c419fed516c7b559a",
+   "example_id": "dev-052"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 6766,
+   "text": "What reasons would cause my card payment to be cancelled?",
+   "label": "reverted_card_payment?",
+   "split": "dev",
+   "text_sha256": "080fa4afaadcc54caee915eb01c0fe286bb2f1c3fdcc5688426a656fc292422f",
+   "example_id": "dev-053"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 2985,
+   "text": "What currency can I use to pay for a top up?",
+   "label": "supported_cards_and_currencies",
+   "split": "dev",
+   "text_sha256": "20c19b337868ef705f1a17c067f25999b4855fa2f836bcd057b06f1a7edd42d7",
+   "example_id": "dev-054"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 6240,
+   "text": "I am dissatisfied, I would like to close my account.",
+   "label": "terminate_account",
+   "split": "dev",
+   "text_sha256": "fac5226872cd0a12087f73ed5bccc2fef24435a2da062e4d54c7bd14f52b8b0c",
+   "example_id": "dev-055"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 1883,
+   "text": "How much would it cost me if I transfer?",
+   "label": "top_up_by_bank_transfer_charge",
+   "split": "dev",
+   "text_sha256": "9dec9d18410ebe76de4da60e2a5b6424332755fefe6b6c689edee7de0ce2132b",
+   "example_id": "dev-056"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 9138,
+   "text": "What is the Top up rate charge for using a card in the US?",
+   "label": "top_up_by_card_charge",
+   "split": "dev",
+   "text_sha256": "ee687276ccddc760d8c955219d3844b6ff46a49b695f03d202224ffb118f1ad5",
+   "example_id": "dev-057"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 7986,
+   "text": "I wish to top up using a cheque.",
+   "label": "top_up_by_cash_or_cheque",
+   "split": "dev",
+   "text_sha256": "da85a3dac7edd08116e02b5990c4d72cfa49131d8ed299305b9879b7ae877b1f",
+   "example_id": "dev-058"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 8597,
+   "text": "Looks like my top-up has been cancelled",
+   "label": "top_up_failed",
+   "split": "dev",
+   "text_sha256": "63ce5f20035345c84e25c9fd26173ab103d3eb206fe14a6cc47bc8ec255fe699",
+   "example_id": "dev-059"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 2264,
+   "text": "Can I top-up any amount I wish on any given day?",
+   "label": "top_up_limits",
+   "split": "dev",
+   "text_sha256": "6a1dfe89efbf6c172eac262e7c900ad01ed25ec06340cad349888d901cf996ea",
+   "example_id": "dev-060"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 3185,
+   "text": "Is there a reason my top-up has been cancelled?",
+   "label": "top_up_reverted",
+   "split": "dev",
+   "text_sha256": "18758bb7d5eb532ee52ba1997391c27094561206cc9d46b6cf36c52d10314c35",
+   "example_id": "dev-061"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 4329,
+   "text": "Do i have to top-up with my credit card before I can transfer?",
+   "label": "topping_up_by_card",
+   "split": "dev",
+   "text_sha256": "fdb980ccff7fdbd7f4e15354d185a3dfe1e530640f85b58833e7f870f3322819",
+   "example_id": "dev-062"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 6311,
+   "text": "How do I query a payment on my card? It looks like I have paid for the same thing twice.",
+   "label": "transaction_charged_twice",
+   "split": "dev",
+   "text_sha256": "b8352510adb0884dea518040be6acf102df62e948b8b6f1bbfd2d4436101b03e",
+   "example_id": "dev-063"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 7285,
+   "text": "Hi,  I have transferred money but beneficiary's account is credited with less amount. Now i have transfer the difference of the amount. I think there is some issue, could you please look into this.",
+   "label": "transfer_fee_charged",
+   "split": "dev",
+   "text_sha256": "506408b620cfa1990a5732d19d4c2140a46a5e283117319f1f6e9f30049226d8",
+   "example_id": "dev-064"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 7593,
+   "text": "Where can I find out how to transfer money into my account.",
+   "label": "transfer_into_account",
+   "split": "dev",
+   "text_sha256": "8fcf93ba67b823fe627d1f6f19e2daacee5cdf3839c641d8565c4f8de4d373d0",
+   "example_id": "dev-065"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 2849,
+   "text": "I just did a money transaction but its not showing they received it",
+   "label": "transfer_not_received_by_recipient",
+   "split": "dev",
+   "text_sha256": "02bc78cd6af9e614a73de219b162a932c6edd1dc4f01f4444d7209413156310a",
+   "example_id": "dev-066"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 6668,
+   "text": "I need to make a transfer from Europe, how many days does this take?",
+   "label": "transfer_timing",
+   "split": "dev",
+   "text_sha256": "48b9f1883f5b50a066992d5b7d79e6433a311cb971fde6394c481e315bae5779",
+   "example_id": "dev-067"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 3945,
+   "text": "I will not be able to verify my identity.",
+   "label": "unable_to_verify_identity",
+   "split": "dev",
+   "text_sha256": "81d65979c1707109f33adbd945a9950200bff8d9358b948f5f6e18911bc178ea",
+   "example_id": "dev-068"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 9783,
+   "text": "How recent do my documents need to be for verification?",
+   "label": "verify_my_identity",
+   "split": "dev",
+   "text_sha256": "26e317aa8c5f71cd7a77c6e139396b86b2d38bb0b24b35b2bbf0c57774c4a115",
+   "example_id": "dev-069"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 6497,
+   "text": "I need to know this, where do my funds come from?",
+   "label": "verify_source_of_funds",
+   "split": "dev",
+   "text_sha256": "099fabd8346fea4e3054e5b575e5a8f65ab85bdab2150dde5c39cc5f73b20032",
+   "example_id": "dev-070"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 7734,
+   "text": "Why verify the top-ups?",
+   "label": "verify_top_up",
+   "split": "dev",
+   "text_sha256": "0d91b1b70ea6f6e83d26239a95ab4103c4d189e59c629d89eac2394d9a0c5be7",
+   "example_id": "dev-071"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 8175,
+   "text": "My throwaway virtual card won't work",
+   "label": "virtual_card_not_working",
+   "split": "dev",
+   "text_sha256": "e133bd9ac233c211687eca18c22e4e55666a03630fef6b6bbbf33f57e1d2f3de",
+   "example_id": "dev-072"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 4106,
+   "text": "I'd prefer Mastercard.",
+   "label": "visa_or_mastercard",
+   "split": "dev",
+   "text_sha256": "14afe1a63580e73015ad2b501aa63118d9353c7ce985e66395cd857accbd723c",
+   "example_id": "dev-073"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 3772,
+   "text": "I do not feel comfortable verifying my identity.",
+   "label": "why_verify_identity",
+   "split": "dev",
+   "text_sha256": "43ede096875c17e533ab89cde9a899b557567559761de76bfe4599e1ad439f98",
+   "example_id": "dev-074"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 2410,
+   "text": "I tried to withdraw some money from an ATM this morning but wasn't able to get the amount of cash I needed. The amount in the app says what I was trying to withdraw was deducted, but I don't have any money. What do I do about this?",
+   "label": "wrong_amount_of_cash_received",
+   "split": "dev",
+   "text_sha256": "742ead46ed5c4c773fda92d30bfb8a8bce9d8dc00a8600aac2b1cbbc0bbc4b0b",
+   "example_id": "dev-075"
+  },
+  {
+   "source_file": "train.csv",
+   "row_index": 8312,
+   "text": "the exchange rate I got for cash was wrong",
+   "label": "wrong_exchange_rate_for_cash_withdrawal",
+   "split": "dev",
+   "text_sha256": "629ded2f65ea2276da3ea84a13a6b779f86b82e7de24f9dc592234c9d6ef3569",
+   "example_id": "dev-076"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1772,
+   "text": "Still waiting on a refund.",
+   "label": "Refund_not_showing_up",
+   "split": "test",
+   "text_sha256": "f24fb0a4841fe7143c221ae6b58d6b2724c163bb02349d8feff241fdb18e5e3f",
+   "example_id": "test-000"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1784,
+   "text": "I requested a refund from a store but it hasn't arrived.",
+   "label": "Refund_not_showing_up",
+   "split": "test",
+   "text_sha256": "b07ca69fd7215e45052d19e98599d2951a7e9756309e96ccd056c3f5c71ec5d0",
+   "example_id": "test-001"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2875,
+   "text": "I would like to activate my card to use now, can you help me?",
+   "label": "activate_my_card",
+   "split": "test",
+   "text_sha256": "86ea90ba280aa536ceba1e292f2eda40b4e9b593253dbcc4eaa9ae5dd82ae576",
+   "example_id": "test-002"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2879,
+   "text": "What do I need to do to activate my card?",
+   "label": "activate_my_card",
+   "split": "test",
+   "text_sha256": "5b0c855115d539919a9e69054ea107a827a36cd09f310362b360b4a1a3a45c1d",
+   "example_id": "test-003"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 502,
+   "text": "What's the minimum age for opening an account?",
+   "label": "age_limit",
+   "split": "test",
+   "text_sha256": "864a0d78c37100328a5930f646666e2443fdf940b0fddf39ec5b7eabe8e28722",
+   "example_id": "test-004"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 516,
+   "text": "How old does my kids need to be to open an account?",
+   "label": "age_limit",
+   "split": "test",
+   "text_sha256": "d30b15e980caf62c66cdda347f2a8a2efc511a7b7550e219156d8128f56d5682",
+   "example_id": "test-005"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2991,
+   "text": "My American Express is in my Apple Pay and the top up is failing, why?",
+   "label": "apple_pay_or_google_pay",
+   "split": "test",
+   "text_sha256": "0e92f69225b5bf2390cffa91fbfa5b4185482ab1b0dd0e2decb3e2d322b9c422",
+   "example_id": "test-006"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2973,
+   "text": "is apple pay eligible for top up",
+   "label": "apple_pay_or_google_pay",
+   "split": "test",
+   "text_sha256": "bf7985becb4ab597213f10b64ee317afe1e533b5aa8fe4f3af7300beec766755",
+   "example_id": "test-007"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1471,
+   "text": "What are the ATMs that will accept this card?",
+   "label": "atm_support",
+   "split": "test",
+   "text_sha256": "cb21983d6612a81642e980ec6d2865c1040fcd0cd697fc62a8c944ff7b7d05c7",
+   "example_id": "test-008"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1454,
+   "text": "How can I withdraw money?",
+   "label": "atm_support",
+   "split": "test",
+   "text_sha256": "6304120b92ce52f0d036d7184e93dd6f07400fa154920b68ac96b32ec3bf7c80",
+   "example_id": "test-009"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 343,
+   "text": "Can I have a auto top-up when my account is short?",
+   "label": "automatic_top_up",
+   "split": "test",
+   "text_sha256": "25e5bf9f76633efd9af349adc10d603843497555181c5657c577da0811720f7d",
+   "example_id": "test-010"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 323,
+   "text": "I'm running out of money, can I  auto top up?",
+   "label": "automatic_top_up",
+   "split": "test",
+   "text_sha256": "1d96c9cead0c4152668dc4a1d2e8d133808aa8f9f23a3e6fb1f9528d2fe5d803",
+   "example_id": "test-011"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2713,
+   "text": "Where is my transfer from [country]?",
+   "label": "balance_not_updated_after_bank_transfer",
+   "split": "test",
+   "text_sha256": "92f39fbd25d0ef9418bcdb287efd0dcc8340c467bcbe930168dfa61fa2b839b2",
+   "example_id": "test-012"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2699,
+   "text": "My bank transfer is still not showing up in my account.",
+   "label": "balance_not_updated_after_bank_transfer",
+   "split": "test",
+   "text_sha256": "efda620f08d66ac3822398d3a82b643713b3b5d4167ecbbd9cc2c5b23f44c458",
+   "example_id": "test-013"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1064,
+   "text": "Why is the cash deposit not showing up in my account?",
+   "label": "balance_not_updated_after_cheque_or_cash_deposit",
+   "split": "test",
+   "text_sha256": "a30cf947bb5e5caa788336928b2fe3f79b8640af3a36db3496ec406196619c0c",
+   "example_id": "test-014"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1076,
+   "text": "I deposited cash this morning and I am still waiting",
+   "label": "balance_not_updated_after_cheque_or_cash_deposit",
+   "split": "test",
+   "text_sha256": "14f6386e28f499bd09cdf637627b238687b92f3fdf85a97f2da03c0d4e174345",
+   "example_id": "test-015"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2161,
+   "text": "I've transferred money before without issue but now I am encountering an error stating that it isn't possible. Why is that?",
+   "label": "beneficiary_not_allowed",
+   "split": "test",
+   "text_sha256": "e6a564f63b55792ca7040dba52085ea72827871b77e14136f40b5505249539ef",
+   "example_id": "test-016"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2166,
+   "text": "How do I do a successful transfer to an account?",
+   "label": "beneficiary_not_allowed",
+   "split": "test",
+   "text_sha256": "6a789bd1ab9559af4e493f9cad49513957aa028bdf161fbebd96b770dd9ba096",
+   "example_id": "test-017"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 718,
+   "text": "Can I change the amount I made on a payment that I made to the payment is correct.",
+   "label": "cancel_transfer",
+   "split": "test",
+   "text_sha256": "b0c3fa9295966f57c952f3ccabb40d3e114df0ae6f22a659720600c3314bcfbc",
+   "example_id": "test-018"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 695,
+   "text": "Can I cancel a transfer",
+   "label": "cancel_transfer",
+   "split": "test",
+   "text_sha256": "2c4206ff2b1f7bd1be11a76c1b70b56f45300af2d83e0b9da9b29e63e66ffc2b",
+   "example_id": "test-019"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2951,
+   "text": "How can I get a new card ASAP to replace an old, soon to expire one?",
+   "label": "card_about_to_expire",
+   "split": "test",
+   "text_sha256": "437af44679d9d20a7859d5ad8e6632c878100b8f48c1a58ca9aaf6c9047d4987",
+   "example_id": "test-020"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2940,
+   "text": "going to need a new card what are the fees and time it takes",
+   "label": "card_about_to_expire",
+   "split": "test",
+   "text_sha256": "098ca395791e010fa62ef19147092f64b388ab9aaf49a3dc6fe474b566076418",
+   "example_id": "test-021"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 985,
+   "text": "Can I use my card everywhere?",
+   "label": "card_acceptance",
+   "split": "test",
+   "text_sha256": "a52f67072e3e070cd5902aca6619876f578fac262ee06e9dea158e68eb9c7029",
+   "example_id": "test-022"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 983,
+   "text": "Is my card usable anywhere?",
+   "label": "card_acceptance",
+   "split": "test",
+   "text_sha256": "c903805b6066aa209736a90597cf77232863ddc3e29296a24ce099801a30000a",
+   "example_id": "test-023"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 32,
+   "text": "How do I know when my card will arrive?",
+   "label": "card_arrival",
+   "split": "test",
+   "text_sha256": "81d38c11f7088f104a9cf12b5a91b147a765614d165865e89756cde53faa6e03",
+   "example_id": "test-024"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 0,
+   "text": "How do I locate my card?",
+   "label": "card_arrival",
+   "split": "test",
+   "text_sha256": "57a5a4533e3e3cf2792c4d5b2efe5c003df50a3588a8505158a0f0c16da5313f",
+   "example_id": "test-025"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 289,
+   "text": "I need my card quickly",
+   "label": "card_delivery_estimate",
+   "split": "test",
+   "text_sha256": "8e5e36c20693a2a58be5127888eb3d7e7db40aa344e00fa0b8e0493e9fb58d9d",
+   "example_id": "test-026"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 298,
+   "text": "How long does it take to get my card? Can I choose when to receive it?",
+   "label": "card_delivery_estimate",
+   "split": "test",
+   "text_sha256": "1625e56e2316cce1fb6ec8815283ffac75220a8059d63ea1519b5c0178df7dc9",
+   "example_id": "test-027"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 41,
+   "text": "I would like to reactivate my card.",
+   "label": "card_linking",
+   "split": "test",
+   "text_sha256": "81b9710f4c2ce9704e9941ceea687d1ab50ebe6523c714607a1002c5a8678fb1",
+   "example_id": "test-028"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 46,
+   "text": "How do I re-add a card to the app?",
+   "label": "card_linking",
+   "split": "test",
+   "text_sha256": "aa7625310dabb42fc1ecde9dfe26869c30821026b4db162bc315c0fa05d348b7",
+   "example_id": "test-029"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 378,
+   "text": "My card doesn't work.",
+   "label": "card_not_working",
+   "split": "test",
+   "text_sha256": "2b201f8cfb19e9df342a492858e7710decb41ab05e3fe69332ef5ef60c851b15",
+   "example_id": "test-030"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 398,
+   "text": "How do I find out why my card won't work?",
+   "label": "card_not_working",
+   "split": "test",
+   "text_sha256": "5198b4d678f38929fe833d9f45d173c05962fd68c5aaea2e211f46729fd252e3",
+   "example_id": "test-031"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 813,
+   "text": "What is the fee charged with this card payment?",
+   "label": "card_payment_fee_charged",
+   "split": "test",
+   "text_sha256": "698a4c15b665de2659326bb9cbd42aee828bd63d6338a40c66045201ed0231f3",
+   "example_id": "test-032"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 807,
+   "text": "There is an unauthorized fee.",
+   "label": "card_payment_fee_charged",
+   "split": "test",
+   "text_sha256": "5c977a2ec8acbf1fcfbeb8121e99519142738ddff0626f986bea37405123c1ec",
+   "example_id": "test-033"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1112,
+   "text": "Somebody used my card to make a purchase",
+   "label": "card_payment_not_recognised",
+   "split": "test",
+   "text_sha256": "0f543d3560fc77cecfd456d1645230c03d5c70264cbe588f361037ee252e29df",
+   "example_id": "test-034"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1088,
+   "text": "there is a transaction on my account that i didnt make",
+   "label": "card_payment_not_recognised",
+   "split": "test",
+   "text_sha256": "f8418dcbf1cfbe2a7281d574a4d59cdff023233ca1d11c75d2199fcb4b70d1d8",
+   "example_id": "test-035"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 123,
+   "text": "The exchange rate was wrong when I bought something outside the country.",
+   "label": "card_payment_wrong_exchange_rate",
+   "split": "test",
+   "text_sha256": "8d25838b46108d77c5d1fef6bab100343c56b2d02e0897fd85b5a2a3c1f7961d",
+   "example_id": "test-036"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 158,
+   "text": "The wrong rate was applied to an item I bought in a currency different from mine. Can this be changed?",
+   "label": "card_payment_wrong_exchange_rate",
+   "split": "test",
+   "text_sha256": "d01884eb8afa50254c9346d94d305e87ff6838dcecf237b21ab14fdacd2da837",
+   "example_id": "test-037"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1955,
+   "text": "The ATM at Metro bank on High St. Kensington didn't return my card. What should I do now that the bank is closed?",
+   "label": "card_swallowed",
+   "split": "test",
+   "text_sha256": "b561a7f4f9aa8435bd22c8c2e729589d9af96db970a156fc9c11e0fb29c41a33",
+   "example_id": "test-038"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1921,
+   "text": "How do I retrieve my card from the machine?",
+   "label": "card_swallowed",
+   "split": "test",
+   "text_sha256": "4ebbbfa2edcc69f2c2ac8a93657d7ac6bdcc3d14d433c680e356012801bf4604",
+   "example_id": "test-039"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2899,
+   "text": "I've notice I was charged for withdrawing cash, can you explain why?",
+   "label": "cash_withdrawal_charge",
+   "split": "test",
+   "text_sha256": "8c618c60adb6e1eddacdcdc9434ae3f7e9988eb36e2083263f1a44ba91f5478b",
+   "example_id": "test-040"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2902,
+   "text": "An ATM fee was attached to my recent withdrawal.",
+   "label": "cash_withdrawal_charge",
+   "split": "test",
+   "text_sha256": "38e2fe320445f9aa600f2f3913c197284069b64d906c94465b5a94f47a1d7678",
+   "example_id": "test-041"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2724,
+   "text": "My app shows some cash I didn't get.",
+   "label": "cash_withdrawal_not_recognised",
+   "split": "test",
+   "text_sha256": "ba3aeb5132777f2f3f3478c5a10bc6de00d6f095e6e4cccd37f9fa0cbf868014",
+   "example_id": "test-042"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2722,
+   "text": "I just lost my wallet and I see that they are already withdrawing money from my account. How can I stop this?",
+   "label": "cash_withdrawal_not_recognised",
+   "split": "test",
+   "text_sha256": "0f7b2a8191dada7178b96a6943c93e1f71a6bef2419c01500416a52fb96aa5a1",
+   "example_id": "test-043"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2152,
+   "text": "I need to change my pin but I am on the road.",
+   "label": "change_pin",
+   "split": "test",
+   "text_sha256": "e779f50b25015dc11c15eda32cc21f9b6d4948554d8d1374ed9e1b52c5df3a1f",
+   "example_id": "test-044"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2125,
+   "text": "How might  I change my PIN?",
+   "label": "change_pin",
+   "split": "test",
+   "text_sha256": "905f0066cfff8a4afd1d801c119b690dbad97fc36afc83bc7c7fd467c03814e8",
+   "example_id": "test-045"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1413,
+   "text": "I think my identity has been stolen, can you check on unauthorized charges?",
+   "label": "compromised_card",
+   "split": "test",
+   "text_sha256": "02aa1d3156c646044d1e3591e6efc08638dd579eee24295fa0cf2784b12910ba",
+   "example_id": "test-046"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1437,
+   "text": "What should I do if I think someone is using my card.",
+   "label": "compromised_card",
+   "split": "test",
+   "text_sha256": "2deff9176522bf9a5dd7d4855d7edd4918dbcbc2790c0b3e9b2b1f2ea9f41167",
+   "example_id": "test-047"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 576,
+   "text": "Fix my contactless",
+   "label": "contactless_not_working",
+   "split": "test",
+   "text_sha256": "b030a54027d462e398769e24668aae32f4b033600c9cbc52695f3b6fe8b9fef2",
+   "example_id": "test-048"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 595,
+   "text": "How do I use contactless pay?",
+   "label": "contactless_not_working",
+   "split": "test",
+   "text_sha256": "d6fafc4a68e010246a97caa6a0d8caf5f141e1c7d40c5906353864f3fcad2cd0",
+   "example_id": "test-049"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 3052,
+   "text": "Do you support the EU?",
+   "label": "country_support",
+   "split": "test",
+   "text_sha256": "3d5eea5abb7b01469d279bc60669beaff209ac38ec086fd5070fa6320d6d54e2",
+   "example_id": "test-050"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 3046,
+   "text": "I'm not in the UK, can I still get a card?",
+   "label": "country_support",
+   "split": "test",
+   "text_sha256": "f05d3205764d365e339f1c755404f877c22e3e1b3674bed8198fa993b8eedf84",
+   "example_id": "test-051"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1805,
+   "text": "My card was declined in a shop",
+   "label": "declined_card_payment",
+   "split": "test",
+   "text_sha256": "0731ed9c2e76efd6ea8b9be840ad973b6beb9bf51adcdc13b61a776903163c6b",
+   "example_id": "test-052"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1833,
+   "text": "I finally got my new card and was very excited to use it today. However, my payment kept declining. What is happening?",
+   "label": "declined_card_payment",
+   "split": "test",
+   "text_sha256": "a80c6056e36e603c59796f6783785b2aff304820a2abd89bfe7bc475279b8d98",
+   "example_id": "test-053"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1597,
+   "text": "Is there a reason that the ATM declined my transaction?",
+   "label": "declined_cash_withdrawal",
+   "split": "test",
+   "text_sha256": "f01ef9383676e7aeca9bb1a7e967acd06d510f5d0f5ecb5d42b7429435ae1b67",
+   "example_id": "test-054"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1563,
+   "text": "The ATM did not allow me to withdraw",
+   "label": "declined_cash_withdrawal",
+   "split": "test",
+   "text_sha256": "78808724b271d0ace2bf05bf401fd6315b3d5c6c3e68666ef28be5036afc8a3f",
+   "example_id": "test-055"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1752,
+   "text": "I can't transfer money from my account.",
+   "label": "declined_transfer",
+   "split": "test",
+   "text_sha256": "a8f4fe14fc22b7a26b9154b5336a2fb2b67dfed9e4c739de439003f9666a19e8",
+   "example_id": "test-056"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1738,
+   "text": "Why could my transfer have been declined?",
+   "label": "declined_transfer",
+   "split": "test",
+   "text_sha256": "e53a19e838e20dd3ec15a3f3fd8691acff7104c5bf1f424109605f0dadd1cdc4",
+   "example_id": "test-057"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1480,
+   "text": "Help me.  There is a Direct Debit that I didn't make.",
+   "label": "direct_debit_payment_not_recognised",
+   "split": "test",
+   "text_sha256": "0ad54f03d1e2aec988ed6a1fec98597b5443308cc329eb309dd41e4d3fea34c0",
+   "example_id": "test-058"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1502,
+   "text": "This Direct Debit payment may not be right.",
+   "label": "direct_debit_payment_not_recognised",
+   "split": "test",
+   "text_sha256": "befd5c4f55c1af93a20a325f57fa67408c1f13165616221a4a88a4e9550f7c92",
+   "example_id": "test-059"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1391,
+   "text": "How many virtual cards do I get?",
+   "label": "disposable_card_limits",
+   "split": "test",
+   "text_sha256": "b93356511618f56958b832031e7f3edd1d535896427d112d21ee03328e05343f",
+   "example_id": "test-060"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1384,
+   "text": "Is there a limit to how many transactions I can make on one disposable card?",
+   "label": "disposable_card_limits",
+   "split": "test",
+   "text_sha256": "4c33ff16026d3b284abf92db5d6f3985257908270e4aa95424bec1a1dd7a6aaa",
+   "example_id": "test-061"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1126,
+   "text": "got married and need to change name",
+   "label": "edit_personal_details",
+   "split": "test",
+   "text_sha256": "dacf65d8a4e65cf50c4b8b5c52b2223eac0eedb28aac9e691e0c044d63fd7e7c",
+   "example_id": "test-062"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1148,
+   "text": "I need to change my name since I got married",
+   "label": "edit_personal_details",
+   "split": "test",
+   "text_sha256": "82c40b1de8c9033179d49219da2613c4a0c9a79888dcdd4fec8870d4231e64e3",
+   "example_id": "test-063"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2787,
+   "text": "When I travel, what will it cost to switch for my currency?",
+   "label": "exchange_charge",
+   "split": "test",
+   "text_sha256": "7f7182eb2ba0e05735e219fc6d29edf9a0087fd8345c9edca7fcbadb865d4a0d",
+   "example_id": "test-064"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2784,
+   "text": "Does it cost to exchange currencies with this card?",
+   "label": "exchange_charge",
+   "split": "test",
+   "text_sha256": "c312af252ab88a568905c2be3a2511fca640c078bffeeda47f542e59d81f29ec",
+   "example_id": "test-065"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 103,
+   "text": "What do you base your exchange rates on?",
+   "label": "exchange_rate",
+   "split": "test",
+   "text_sha256": "8ae5a8fe0475976eaad845a00f5d9cd81d5f3b05b379e6d5ab97c0936cb1fc76",
+   "example_id": "test-066"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 111,
+   "text": "How are you determining your exchange rates?",
+   "label": "exchange_rate",
+   "split": "test",
+   "text_sha256": "0deece49f6844ef1b36d319f3b10cc279e169b562a663a4c42ff85b0b14199ab",
+   "example_id": "test-067"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 410,
+   "text": "What all currencies can be exchanged?",
+   "label": "exchange_via_app",
+   "split": "test",
+   "text_sha256": "322d58759b824dc3678a4ee6d70e3cbcc0c1f68e5a130ff647f2faf1ae7e6ab7",
+   "example_id": "test-068"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 428,
+   "text": "What currency's can i exchange for?",
+   "label": "exchange_via_app",
+   "split": "test",
+   "text_sha256": "d489dc0ee2c8d27a71b5a05c209911ec0aa51051640a827b5b278043647ef551",
+   "example_id": "test-069"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 163,
+   "text": "Why is there an extra dollar charged to my account?",
+   "label": "extra_charge_on_statement",
+   "split": "test",
+   "text_sha256": "5695869dc881eb4708bdf467a814a711ba218cbc4618138582d09b0c92f7ad4c",
+   "example_id": "test-070"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 184,
+   "text": "Something went wrong, I was charged an extra pound?",
+   "label": "extra_charge_on_statement",
+   "split": "test",
+   "text_sha256": "460cd51f9c05aa646e65132b4849743f2ad238dd7800019fc19957c1ea73c9f6",
+   "example_id": "test-071"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2300,
+   "text": "What are your policies for card transfers?",
+   "label": "failed_transfer",
+   "split": "test",
+   "text_sha256": "6f2ff955aafaf302175742c78dfee01930d5bb14a0efd4bbab8afb0c113d994d",
+   "example_id": "test-072"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2295,
+   "text": "Why hasn't my transfer been made?",
+   "label": "failed_transfer",
+   "split": "test",
+   "text_sha256": "70820d637891dd83a7489a47b480c1cbd89a4ef0edbee6fe7e1a37819f97419c",
+   "example_id": "test-073"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 257,
+   "text": "When considering currency holdings and exchanges, what fiat currencies are supported?",
+   "label": "fiat_currency_support",
+   "split": "test",
+   "text_sha256": "18f5dca29c8b4881527a6736dbacba7d64b84205627208e1e2e2452868023920",
+   "example_id": "test-074"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 261,
+   "text": "Do you happen to do exchanges of EUR?",
+   "label": "fiat_currency_support",
+   "split": "test",
+   "text_sha256": "3bc3c51550c59b531b94ebc6c2bb8c04461f64ecae1efeb051ec3574afa0dc6a",
+   "example_id": "test-075"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2607,
+   "text": "How do the disposable cards work?",
+   "label": "get_disposable_virtual_card",
+   "split": "test",
+   "text_sha256": "074290bf5496ae8cafddc699900eb8432a17004172e004eb55be0d6a34e44d7a",
+   "example_id": "test-076"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2629,
+   "text": "I need a disposable virtual card, how do I get one?",
+   "label": "get_disposable_virtual_card",
+   "split": "test",
+   "text_sha256": "e6bc272bf8aa4d41f5329ce958f999f1c639bdc32fcf6747e27986dec6f4f971",
+   "example_id": "test-077"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1249,
+   "text": "where in the app can i find out about my new pin",
+   "label": "get_physical_card",
+   "split": "test",
+   "text_sha256": "5f34e3446c1757b9c745ec64211b35cb629b085c8650a4f195a8db3169751d0e",
+   "example_id": "test-078"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1245,
+   "text": "How do I set-up my PIN for the new card?",
+   "label": "get_physical_card",
+   "split": "test",
+   "text_sha256": "86758dd48e9f1071f58b1a0fe758f30140d3946259117b95cc92327f96cb3aca",
+   "example_id": "test-079"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2410,
+   "text": "If I need more cards, are there any fees?",
+   "label": "getting_spare_card",
+   "split": "test",
+   "text_sha256": "9da35b18ea5aba4f3b74a26cf2a17bbee9e6226d44ec189ef26c8938826aa996",
+   "example_id": "test-080"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2431,
+   "text": "How can I get a second card for my daughter?",
+   "label": "getting_spare_card",
+   "split": "test",
+   "text_sha256": "45b8fd33cc8940184d0c0c58586a44ae6c123dbd392c1bc867dcbef108f90bc0",
+   "example_id": "test-081"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 956,
+   "text": "I need to reorder my virtual card!",
+   "label": "getting_virtual_card",
+   "split": "test",
+   "text_sha256": "b3993f465f69e4eef7f141b5a303917cf1a728b9b6cff38a3dcf98018c0ec1d4",
+   "example_id": "test-082"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 958,
+   "text": "Is there a way to obtain a virtual card?",
+   "label": "getting_virtual_card",
+   "split": "test",
+   "text_sha256": "2eb218f2f9b8b198091a2d76d08c8edf8c2a7aad347e6ba0adbf041b7887577a",
+   "example_id": "test-083"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 445,
+   "text": "I lost my card",
+   "label": "lost_or_stolen_card",
+   "split": "test",
+   "text_sha256": "32e8c8f54ea0a9f8e387438174cb697b6b9c513110fbae85fedfe381b0758420",
+   "example_id": "test-084"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 456,
+   "text": "Can you freeze my card it was stolen",
+   "label": "lost_or_stolen_card",
+   "split": "test",
+   "text_sha256": "df26977d00649f5a33ed8122c30522fc2ffb133c2e90f855e63fb62178ea5634",
+   "example_id": "test-085"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1667,
+   "text": "I was mugged yesterday and they took everything.  I can't access my app.  What are my next steps?",
+   "label": "lost_or_stolen_phone",
+   "split": "test",
+   "text_sha256": "2569c4729b621e7d2aed073da17cecf3d958950ecceed2e9865158fc42b01217",
+   "example_id": "test-086"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1676,
+   "text": "I can't find my phone but it has all my credit card information.",
+   "label": "lost_or_stolen_phone",
+   "split": "test",
+   "text_sha256": "fd7b05a0a8f14de1a645d9c9a6e92728db253645d038b3161ca23a14861a98a5",
+   "example_id": "test-087"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2498,
+   "text": "What is the charge for a physical card?",
+   "label": "order_physical_card",
+   "split": "test",
+   "text_sha256": "52b16b161a17ae582c6898dc74b4cf1b7e4700a3d9feea643a8df77a52e2d7f7",
+   "example_id": "test-088"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2499,
+   "text": "Is a non-electronic card available as well",
+   "label": "order_physical_card",
+   "split": "test",
+   "text_sha256": "b861e4ff17a946436a0a0d914cf936fde05a8c89adb5b44ed5b4eb48ac857ffe",
+   "example_id": "test-089"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1546,
+   "text": "I forgot my code to get into the app.",
+   "label": "passcode_forgotten",
+   "split": "test",
+   "text_sha256": "1ed41a00ad699cc843b55f94fa169d91e7305d02b39cd2cdbb97a6009330930e",
+   "example_id": "test-090"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1540,
+   "text": "What should I do if the passcode doesn't work for me?",
+   "label": "passcode_forgotten",
+   "split": "test",
+   "text_sha256": "ce6e4cd242ff771c4caafce34308bf1105dee4b7a342d53389b5c937cfa042a3",
+   "example_id": "test-091"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1610,
+   "text": "I made this payment days ago so why hasn't it gone through yet?",
+   "label": "pending_card_payment",
+   "split": "test",
+   "text_sha256": "3b8054663f78696d343956de977e7343e9a50dc67541540ad93281c3a4b91e1b",
+   "example_id": "test-092"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1600,
+   "text": "My card payment is still on hold, why is it so?",
+   "label": "pending_card_payment",
+   "split": "test",
+   "text_sha256": "d14e1129c9ad0d230422b72c5100f41be100ada4dbd6851a3e8f3707722a5677",
+   "example_id": "test-093"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 201,
+   "text": "My card was denied at an ATM earlier today but the transaction is pending. Please cancel it as I did not receive my money.",
+   "label": "pending_cash_withdrawal",
+   "split": "test",
+   "text_sha256": "1aaec1c7a31efe34ca2d4ef71e120d2ad904c37d32b3a3c8be8825492e63d6d9",
+   "example_id": "test-094"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 236,
+   "text": "My account was charged for a withdraw I tried to make that was decline.",
+   "label": "pending_cash_withdrawal",
+   "split": "test",
+   "text_sha256": "492531c81ad915f0b87bcb4a380e773acef52f5cfe596cbdcf8c405524391deb",
+   "example_id": "test-095"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 640,
+   "text": "new customer and filling gas today, it's not working, the thing shows pending half an hour!",
+   "label": "pending_top_up",
+   "split": "test",
+   "text_sha256": "3036249862a8ac9f71bfb74697d47e404177a5feab4e00740553d666098e2c17",
+   "example_id": "test-096"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 648,
+   "text": "What is going on? My top-up is still pending. I use your system all the time but now it is just showing as pending.",
+   "label": "pending_top_up",
+   "split": "test",
+   "text_sha256": "e8ee0a8d9e49b42de4dd363a6ac53750345e3a8bc6ee8d4f0a5eb62e6b81968c",
+   "example_id": "test-097"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1879,
+   "text": "How long does it take for a money transfer to show?",
+   "label": "pending_transfer",
+   "split": "test",
+   "text_sha256": "d211318dc1af46dbae7c8e1d3ee62501b0d2e96d740085c72f12e85c0e93b7d4",
+   "example_id": "test-098"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1876,
+   "text": "I am still waiting for a money transfer to show",
+   "label": "pending_transfer",
+   "split": "test",
+   "text_sha256": "1c0f6fb4b7e55290a3f011b66cfa1e87ca75172a33fe3133514d53bebda61764",
+   "example_id": "test-099"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 532,
+   "text": "I have exceeded the number of times I can try my PIN",
+   "label": "pin_blocked",
+   "split": "test",
+   "text_sha256": "113a5a6ac3bb2a04328a88569227f016897d9c3045a88983c9296f666d50643b",
+   "example_id": "test-100"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 526,
+   "text": "I need help because I drunken blocked my card?",
+   "label": "pin_blocked",
+   "split": "test",
+   "text_sha256": "062f208fe593b81268d3fb1b6d4d4e50694bba303479c82527ead4b92c7ade11",
+   "example_id": "test-101"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2277,
+   "text": "My salary is in GBP; how can I note this in the app?",
+   "label": "receiving_money",
+   "split": "test",
+   "text_sha256": "3dbf5f12dc872d469458f03a53e9d3aec6eeb6109572cde32f93e16e21b8b07f",
+   "example_id": "test-102"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2260,
+   "text": "Can I directly transfer my salary onto here?",
+   "label": "receiving_money",
+   "split": "test",
+   "text_sha256": "f69d67ca8e417f2c8bacc1941ae6c38a514ba60cec52cc34c892304593157282",
+   "example_id": "test-103"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1704,
+   "text": "How do I claim a refund?",
+   "label": "request_refund",
+   "split": "test",
+   "text_sha256": "00339ae2e7513baceb12c3d6309d7db6b66cca4d648924de34a359899b0f6a8b",
+   "example_id": "test-104"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1706,
+   "text": "Hello I changed my mind and really need a refund on one of things I bought recently. Can you please cancel the transaction and get my money back. Please it's urgent.",
+   "label": "request_refund",
+   "split": "test",
+   "text_sha256": "3ce67f8cb77dbcb14639773ba772c6cbb0f6b7fa2ad7f1e434d8d967f26624cf",
+   "example_id": "test-105"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2097,
+   "text": "Why was my payment reversed?",
+   "label": "reverted_card_payment?",
+   "split": "test",
+   "text_sha256": "1e9dcfc8be5fb3f33e0ef4131a8719ec53eb79ca2eda9c543c102c328fc425f3",
+   "example_id": "test-106"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2107,
+   "text": "My account shows the card payment cancelled.",
+   "label": "reverted_card_payment?",
+   "split": "test",
+   "text_sha256": "f18c35877a948fa9f56bdd8a3406a2a5a2668833fc1a4f268bd682337ccef7cc",
+   "example_id": "test-107"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 883,
+   "text": "What are the cards and currencies that are supported?",
+   "label": "supported_cards_and_currencies",
+   "split": "test",
+   "text_sha256": "50ace559c7ed60f101f24109b4a00bbad3f5110fa0e9edac1d4994f2142dd2e1",
+   "example_id": "test-108"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 890,
+   "text": "Can I use American Express to add money into my account?",
+   "label": "supported_cards_and_currencies",
+   "split": "test",
+   "text_sha256": "b6068a9a64f04cb82d92bd552d8c7509dece705728746bbe46281e8131f60823",
+   "example_id": "test-109"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1892,
+   "text": "I would like to close my account.",
+   "label": "terminate_account",
+   "split": "test",
+   "text_sha256": "4f46f6a754a2618c778cd533a18b3356b74d2d22155f7437256bd61e723eb118",
+   "example_id": "test-110"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1894,
+   "text": "This company is bad, please delete my account.",
+   "label": "terminate_account",
+   "split": "test",
+   "text_sha256": "9f1a439541383c579dc9f97cb85b0ed1676940bc86623e7425b412819b49de2f",
+   "example_id": "test-111"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 623,
+   "text": "How much is the fee for a SEPA transfer?",
+   "label": "top_up_by_bank_transfer_charge",
+   "split": "test",
+   "text_sha256": "175adbb6e6b3cf014a1509cbf60d228aecc9b6274a24f11164b71e9e7f967eb3",
+   "example_id": "test-112"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 612,
+   "text": "Will you deal with SWIFT transfers?",
+   "label": "top_up_by_bank_transfer_charge",
+   "split": "test",
+   "text_sha256": "aab6f289d9bbc5dc86a5523b211d34aa12c3fa2563d76788e194490f91dcb44d",
+   "example_id": "test-113"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2830,
+   "text": "Any fee for topping up?",
+   "label": "top_up_by_card_charge",
+   "split": "test",
+   "text_sha256": "440e70336902713eee5bf8515251ea129199ce8ec02f078fcaf80c913489f7eb",
+   "example_id": "test-114"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2826,
+   "text": "Are there fees for adding money using an international card",
+   "label": "top_up_by_card_charge",
+   "split": "test",
+   "text_sha256": "a4ce956128ec1c087a38e55bac929276695881a9615672c00874424b535367eb",
+   "example_id": "test-115"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2474,
+   "text": "I want to do a cash top-up",
+   "label": "top_up_by_cash_or_cheque",
+   "split": "test",
+   "text_sha256": "4f4ae5db1c743f86124ce55d0d27a31989b86db07890fb2b5f32cdaeeede7381",
+   "example_id": "test-116"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2476,
+   "text": "I want to top-up using cash",
+   "label": "top_up_by_cash_or_cheque",
+   "split": "test",
+   "text_sha256": "74f0958b5b065faa69b89e6010767884eaf299e39d9e5471361e3fe8fc86a20c",
+   "example_id": "test-117"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2654,
+   "text": "Why caused my top up to not work?",
+   "label": "top_up_failed",
+   "split": "test",
+   "text_sha256": "234acb658f076658b8780d8d5965e51242bcb02ded47ad397ff37a59f769cad2",
+   "example_id": "test-118"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2644,
+   "text": "Why did the app deny my top up?",
+   "label": "top_up_failed",
+   "split": "test",
+   "text_sha256": "5353e1fbd60d623d27bf7707a2d98eb1a3b2da563d3805e9a64d7d821d983e8f",
+   "example_id": "test-119"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 747,
+   "text": "What's the top up limit?",
+   "label": "top_up_limits",
+   "split": "test",
+   "text_sha256": "a7848c56b292c3bb8bf6be8c0ee9fb9b3a928809fd0661f717a4b0c5332b5c8e",
+   "example_id": "test-120"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 735,
+   "text": "What is the limit to a top-up?",
+   "label": "top_up_limits",
+   "split": "test",
+   "text_sha256": "41a0cc1b8562e3ad274a1bb19d5b3e6b5d531ed80cf1394c000cacb31d055be6",
+   "example_id": "test-121"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1004,
+   "text": "Hi, i don't know what's going on i've just paid for my top up twice by accident can you help me get a refund please.",
+   "label": "top_up_reverted",
+   "split": "test",
+   "text_sha256": "6f558deba2b9815b0449d9c4cf53ef5a7642f5dcb032b857f993065c5fa0f0d4",
+   "example_id": "test-122"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1020,
+   "text": "What happened to my top-up?",
+   "label": "top_up_reverted",
+   "split": "test",
+   "text_sha256": "36c40525885c20dac25c7d571bbaf69ec30619d75f1c4bc60dbde8833aad8d6a",
+   "example_id": "test-123"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1341,
+   "text": "Why isn't my top up showing on my wallet?",
+   "label": "topping_up_by_card",
+   "split": "test",
+   "text_sha256": "75f4ff95885d6054ccc2f8267e62be9d65791ea38e3647ddd122e3397c30f68c",
+   "example_id": "test-124"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1334,
+   "text": "I have friends that would like to top-up my account is that possible?",
+   "label": "topping_up_by_card",
+   "split": "test",
+   "text_sha256": "cb6d0341cf72f1fe7039593913183a419fb26e80297976abeeeb36f00217c885",
+   "example_id": "test-125"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1966,
+   "text": "Why is there more then one charge on my card I only paid for one not twice how can I fix this?",
+   "label": "transaction_charged_twice",
+   "split": "test",
+   "text_sha256": "85f79d98d7f669db4debdc211b3708f8eebb287dc25c60bd81e1558812c0766f",
+   "example_id": "test-126"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1997,
+   "text": "I have a duplicate payment showing",
+   "label": "transaction_charged_twice",
+   "split": "test",
+   "text_sha256": "a673590e312cb7aaeba894a0f5b265f03e49e1b4ab13a153b196831378fa5ff7",
+   "example_id": "test-127"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2231,
+   "text": "In the past month I often used this account to manage payments for my new holiday villa. Now all of a sudden your fees have increased exorbitantly! Don't you have a rewards programme for frequent users?",
+   "label": "transfer_fee_charged",
+   "split": "test",
+   "text_sha256": "53325a241d33c5744114211675ec49b0678cfda22777e8f464ec0cdf808f6611",
+   "example_id": "test-128"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2223,
+   "text": "I sent out money, but was charged extra for transferring. Why?",
+   "label": "transfer_fee_charged",
+   "split": "test",
+   "text_sha256": "c412e11215c0404582175ed66e35c370bde8f7938e3e8d7f3c9627dc0c46f1b3",
+   "example_id": "test-129"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2346,
+   "text": "How do I transfer money to my account?",
+   "label": "transfer_into_account",
+   "split": "test",
+   "text_sha256": "eed41b5955b1b292ccf21cd29d089948145c0c016e2e1b0f93763704b2c197e8",
+   "example_id": "test-130"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2341,
+   "text": "What methods can I use to add money to my account?",
+   "label": "transfer_into_account",
+   "split": "test",
+   "text_sha256": "f25d936a11b70b370e2f179af2f0d7955de4ffc15fe9bd802ea47e25443a1d1f",
+   "example_id": "test-131"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 869,
+   "text": "How long will it take for my transaction to be completed?",
+   "label": "transfer_not_received_by_recipient",
+   "split": "test",
+   "text_sha256": "a09e7d08aac82ecb00b3e6b01cbf37c39db522e744e5a907698e06de015d4c0d",
+   "example_id": "test-132"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 852,
+   "text": "transaction failed?",
+   "label": "transfer_not_received_by_recipient",
+   "split": "test",
+   "text_sha256": "886a31ee3f7e1c66cca198f3238abc9b6eae433ec80de6704073a68ed7f8e353",
+   "example_id": "test-133"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2053,
+   "text": "Will my transfer immediately show up in my account?",
+   "label": "transfer_timing",
+   "split": "test",
+   "text_sha256": "458734c2085d623e876af21655d9ae166c51a098422c1d3a44bf47d872a0fc1c",
+   "example_id": "test-134"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2055,
+   "text": "When does the money get transferred to my account",
+   "label": "transfer_timing",
+   "split": "test",
+   "text_sha256": "06e0988fac97ccfece67efab34940527264f1d90f087de6d374259209fe8af31",
+   "example_id": "test-135"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1234,
+   "text": "Why am I having trouble verifying my id?",
+   "label": "unable_to_verify_identity",
+   "split": "test",
+   "text_sha256": "c7df1482accb0e78746a65565713f231b94a36059b0be0a5450216aa9cfdc0c0",
+   "example_id": "test-136"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1205,
+   "text": "It is impossible to verify my identity",
+   "label": "unable_to_verify_identity",
+   "split": "test",
+   "text_sha256": "113281b3d7bbba9f34c3c6f0753e56b918358d7c8093dc21c9803e6909fc223d",
+   "example_id": "test-137"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 3034,
+   "text": "What will I need for identity verification?",
+   "label": "verify_my_identity",
+   "split": "test",
+   "text_sha256": "de2327302375c52af04ad707512ea8ac079a0023b8e0f75c8ddf9478fabe89cd",
+   "example_id": "test-138"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 3007,
+   "text": "Is there a specific type you need for identity verification?",
+   "label": "verify_my_identity",
+   "split": "test",
+   "text_sha256": "52e83404f06159c6c1c5a23a59a7c12cfb8a3cfe1d86d52712dde0e8669d080e",
+   "example_id": "test-139"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2026,
+   "text": "I need to validate the source of my funds.",
+   "label": "verify_source_of_funds",
+   "split": "test",
+   "text_sha256": "e71fa9fc67ef55e8c425f4367c354a054533caf7185b76b242167763dbc09222",
+   "example_id": "test-140"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2000,
+   "text": "Can I verify the source of my funds?",
+   "label": "verify_source_of_funds",
+   "split": "test",
+   "text_sha256": "50ca1bf52d564281e4041fc28293d70daccac2d33da83f2d5f9916d90b37eacf",
+   "example_id": "test-141"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2393,
+   "text": "The top-up verification code is missing",
+   "label": "verify_top_up",
+   "split": "test",
+   "text_sha256": "b2f0c190f9d0d4806f60c0d45654e6ed1821994fa800adb97084a36acdadd229",
+   "example_id": "test-142"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2398,
+   "text": "Is there a verification code for top-ups?",
+   "label": "verify_top_up",
+   "split": "test",
+   "text_sha256": "9c29204f6d7a93592c7e7067c638c5767731ff212ef6beaf330b6043b5fe1ebb",
+   "example_id": "test-143"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2539,
+   "text": "How can I fix a problem where my virtual card is rejected?",
+   "label": "virtual_card_not_working",
+   "split": "test",
+   "text_sha256": "e82e723a6dc51211f274d84aec88a3eebd1f7d6ce7fdd97098215e228dbe7801",
+   "example_id": "test-144"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2549,
+   "text": "My disposable virtual card is not working",
+   "label": "virtual_card_not_working",
+   "split": "test",
+   "text_sha256": "d368f21a7ffd5b07d92ec645d954c10dd2d7885c0480aab87ed7f24f9e5a5aac",
+   "example_id": "test-145"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1282,
+   "text": "How do I get a visa card?",
+   "label": "visa_or_mastercard",
+   "split": "test",
+   "text_sha256": "10ab388b00431d115e9eaa678cc9b7f94758bf80b7f9281c950f74edc1dc4da4",
+   "example_id": "test-146"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1290,
+   "text": "What steps must I follow to get a Visa credit card?",
+   "label": "visa_or_mastercard",
+   "split": "test",
+   "text_sha256": "d0a74f7aee7ca732c892a2c906f1948ef5add4d879f7922779897831c7aef4f0",
+   "example_id": "test-147"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1181,
+   "text": "Why am I being asked to have an identity check",
+   "label": "why_verify_identity",
+   "split": "test",
+   "text_sha256": "735780cf1b6f98d7339123ea059171df4f9e7bc116f728807bbe987c17cccd10",
+   "example_id": "test-148"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 1191,
+   "text": "what is the identity check?",
+   "label": "why_verify_identity",
+   "split": "test",
+   "text_sha256": "424693feed7809a6f4e78abcbae72229bd6e4d1c46b1b470974efd8dc2507cb8",
+   "example_id": "test-149"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 784,
+   "text": "Something went wrong with my withdrawal. The amount of money isn't right.",
+   "label": "wrong_amount_of_cash_received",
+   "split": "test",
+   "text_sha256": "eb52543628bb843d81ce0699fc3570c73b65c0af58e4f3216aca1205ae313e9f",
+   "example_id": "test-150"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 761,
+   "text": "I didn't get all the cash I requested for at the ATM",
+   "label": "wrong_amount_of_cash_received",
+   "split": "test",
+   "text_sha256": "5963d34d8069c2b60a6bce45c7cd24e1070d597a8b476f07ba13270939938c5c",
+   "example_id": "test-151"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2580,
+   "text": "I took out a foreign currency and the exchange rate is wrong.",
+   "label": "wrong_exchange_rate_for_cash_withdrawal",
+   "split": "test",
+   "text_sha256": "0682bafb8471e68b650ec8756e2bd95f6c9ccf5e4ac449c9237bca3fdb801a00",
+   "example_id": "test-152"
+  },
+  {
+   "source_file": "test.csv",
+   "row_index": 2593,
+   "text": "The rate of exchange isn't right for my cash withdrawal.",
+   "label": "wrong_exchange_rate_for_cash_withdrawal",
+   "split": "test",
+   "text_sha256": "16006b0c0af73a595aa05d56b44451d29c7141582094beee968005f192800da9",
+   "example_id": "test-153"
+  }
+ ]
+}

@@ -1,0 +1,232 @@
+diff --git a/tests/test_jev_client.py b/tests/test_jev_client.py
+index a429e2b..3baf897 100644
+--- a/tests/test_jev_client.py
++++ b/tests/test_jev_client.py
+@@ -4,9 +4,12 @@ from triage.jev_client import ask_jev
+ 
+ 
+ class FakeResponse:
+-    def __init__(self, team, team_confidence, refund, urgency, urgency_confidence):
++    def __init__(self, team, team_confidence, refund, urgency, urgency_confidence, no_reply_needed=0.1):
+         self.choices = {"team": SimpleNamespace(choice=team, confidence=team_confidence)}
+-        self.nouls = {"wants_refund": SimpleNamespace(noul=refund)}
++        self.nouls = {
++            "wants_refund": SimpleNamespace(noul=refund),
++            "no_reply_needed": SimpleNamespace(noul=no_reply_needed),
++        }
+         self.scores = {"urgency": SimpleNamespace(score=urgency, confidence=urgency_confidence)}
+ 
+ 
+@@ -21,7 +24,9 @@ class FakeClient:
+ 
+ 
+ def test_ask_jev_maps_response_fields_onto_jev_answers():
+-    response = FakeResponse(team="billing", team_confidence=0.92, refund=0.7, urgency=2.3, urgency_confidence=0.6)
++    response = FakeResponse(
++        team="billing", team_confidence=0.92, refund=0.7, urgency=2.3, urgency_confidence=0.6, no_reply_needed=0.05
++    )
+     client = FakeClient(response)
+ 
+     answers = ask_jev(client, "I want my money back.")
+@@ -31,6 +36,7 @@ def test_ask_jev_maps_response_fields_onto_jev_answers():
+     assert answers.wants_refund == 0.7
+     assert answers.urgency_score == 2.3
+     assert answers.urgency_confidence == 0.6
++    assert answers.no_reply_needed == 0.05
+ 
+ 
+ def test_ask_jev_sends_the_message_as_state():
+@@ -39,4 +45,4 @@ def test_ask_jev_sends_the_message_as_state():
+     ask_jev(client, "Hello there")
+ 
+     assert client.last_call["state"] == {"message": "Hello there"}
+-    assert set(client.last_call["questions"]) == {"team", "wants_refund", "urgency"}
++    assert set(client.last_call["questions"]) == {"team", "wants_refund", "no_reply_needed", "urgency"}
+diff --git a/tests/test_rules.py b/tests/test_rules.py
+index 6d4a7df..fe5ab31 100644
+--- a/tests/test_rules.py
++++ b/tests/test_rules.py
+@@ -8,6 +8,7 @@ def _answers(**overrides):
+         wants_refund=0.1,
+         urgency_score=0.5,
+         urgency_confidence=0.9,
++        no_reply_needed=0.1,
+     )
+     base.update(overrides)
+     return JevAnswers(**base)
+@@ -44,3 +45,15 @@ def test_refund_request_goes_to_billing_queue_even_if_team_is_not_billing():
+ def test_non_billing_default_goes_to_team_queue():
+     answers = _answers(team="sales", wants_refund=0.1)
+     assert next_step(answers) == "sales queue"
++
++
++def test_no_reply_needed_takes_priority_over_everything_else():
++    # Resolved and thanked us, but happens to also look urgent and unclear -
++    # none of that matters once the customer says they don't need a reply.
++    answers = _answers(no_reply_needed=0.9, team_confidence=0.1, urgency_score=3.0, wants_refund=0.9)
++    assert next_step(answers) == "no reply needed"
++
++
++def test_no_reply_needed_below_floor_is_ignored():
++    answers = _answers(no_reply_needed=0.4)
++    assert next_step(answers) == "general queue"
+diff --git a/tests/test_run.py b/tests/test_run.py
+index 5f7979c..2617c40 100644
+--- a/tests/test_run.py
++++ b/tests/test_run.py
+@@ -14,7 +14,10 @@ class FakeClient:
+ 
+         return SimpleNamespace(
+             choices={"team": SimpleNamespace(choice="general", confidence=0.9)},
+-            nouls={"wants_refund": SimpleNamespace(noul=0.1)},
++            nouls={
++                "wants_refund": SimpleNamespace(noul=0.1),
++                "no_reply_needed": SimpleNamespace(noul=0.1),
++            },
+             scores={"urgency": SimpleNamespace(score=0.5, confidence=0.9)},
+         )
+ 
+diff --git a/triage/jev_client.py b/triage/jev_client.py
+index 385f159..deee6ab 100644
+--- a/triage/jev_client.py
++++ b/triage/jev_client.py
+@@ -2,7 +2,14 @@
+ 
+ from typesafe_sdk import Choice, Noul, NoulCriteria, Score
+ 
+-from .questions import TEAMS, URGENCY_LEVELS, WANTS_REFUND_CRITERIA, WANTS_REFUND_INSTRUCTIONS
++from .questions import (
++    NO_REPLY_NEEDED_CRITERIA,
++    NO_REPLY_NEEDED_INSTRUCTIONS,
++    TEAMS,
++    URGENCY_LEVELS,
++    WANTS_REFUND_CRITERIA,
++    WANTS_REFUND_INSTRUCTIONS,
++)
+ from .rules import JevAnswers
+ 
+ QUESTIONS = {
+@@ -14,6 +21,10 @@ QUESTIONS = {
+         instructions=WANTS_REFUND_INSTRUCTIONS,
+         criteria=NoulCriteria(**WANTS_REFUND_CRITERIA),
+     ),
++    "no_reply_needed": Noul(
++        instructions=NO_REPLY_NEEDED_INSTRUCTIONS,
++        criteria=NoulCriteria(**NO_REPLY_NEEDED_CRITERIA),
++    ),
+     "urgency": Score(
+         instructions="How urgent is this message?",
+         criteria=URGENCY_LEVELS,
+@@ -22,7 +33,7 @@ QUESTIONS = {
+ 
+ 
+ def ask_jev(client, message_text: str) -> JevAnswers:
+-    """Ask all three questions about one message in a single request.
++    """Ask all four questions about one message in a single request.
+ 
+     `client` only needs a `system_one(state, questions)` method, so tests can
+     pass a fake client instead of a real TypeSafeClient.
+@@ -30,6 +41,7 @@ def ask_jev(client, message_text: str) -> JevAnswers:
+     response = client.system_one(state={"message": message_text}, questions=QUESTIONS)
+     team = response.choices["team"]
+     refund = response.nouls["wants_refund"]
++    no_reply_needed = response.nouls["no_reply_needed"]
+     urgency = response.scores["urgency"]
+     return JevAnswers(
+         team=team.choice,
+@@ -37,4 +49,5 @@ def ask_jev(client, message_text: str) -> JevAnswers:
+         wants_refund=refund.noul,
+         urgency_score=urgency.score,
+         urgency_confidence=urgency.confidence,
++        no_reply_needed=no_reply_needed.noul,
+     )
+diff --git a/triage/questions.py b/triage/questions.py
+index 7b8f95e..42318dd 100644
+--- a/triage/questions.py
++++ b/triage/questions.py
+@@ -20,6 +20,17 @@ WANTS_REFUND_CRITERIA = {
+     "false": "Does not ask for money back, or explicitly says not to refund yet.",
+ }
+ 
++# Noul: the customer has said the issue is resolved and no reply is needed.
++NO_REPLY_NEEDED_INSTRUCTIONS = (
++    "Has the customer said the issue is already resolved, or otherwise indicated "
++    "they do not need a reply?"
++)
++NO_REPLY_NEEDED_CRITERIA = {
++    "true": "States the issue is resolved, thanks the team and asks not to be contacted, "
++    "or otherwise says no reply or follow-up is needed.",
++    "false": "Does not say the issue is resolved or that no reply is needed.",
++}
++
+ # Score: how urgent the message is. Levels are ordered low to high; Jev sees
+ # only these descriptions, so describe the situation, not a label like "medium".
+ URGENCY_LEVELS = [
+diff --git a/triage/rules.py b/triage/rules.py
+index b642dab..6835339 100644
+--- a/triage/rules.py
++++ b/triage/rules.py
+@@ -6,6 +6,9 @@ or the order below to change routing — nothing else needs to change.
+ 
+ from dataclasses import dataclass
+ 
++# Noul probability that the customer already considers this resolved.
++NO_REPLY_PROBABILITY_FLOOR = 0.5
++
+ # Below this, we don't trust the team routing enough to act on it automatically.
+ TEAM_CONFIDENCE_FLOOR = 0.5
+ 
+@@ -23,9 +26,12 @@ class JevAnswers:
+     wants_refund: float
+     urgency_score: float
+     urgency_confidence: float
++    no_reply_needed: float
+ 
+ 
+ def next_step(answers: JevAnswers) -> str:
++    if answers.no_reply_needed >= NO_REPLY_PROBABILITY_FLOOR:
++        return "no reply needed"
+     if answers.team_confidence < TEAM_CONFIDENCE_FLOOR:
+         return "needs a person"
+     if answers.urgency_score >= URGENT_SCORE_FLOOR:
+diff --git a/triage/run.py b/triage/run.py
+index aee725a..bd4c47d 100644
+--- a/triage/run.py
++++ b/triage/run.py
+@@ -29,6 +29,7 @@ FIELDNAMES = [
+     "team",
+     "team_confidence",
+     "wants_refund",
++    "no_reply_needed",
+     "urgency_score",
+     "urgency_confidence",
+     "next_step",
+@@ -48,6 +49,7 @@ def triage_one(message: dict, client) -> dict:
+         "team": answers.team,
+         "team_confidence": round(answers.team_confidence, 2),
+         "wants_refund": round(answers.wants_refund, 2),
++        "no_reply_needed": round(answers.no_reply_needed, 2),
+         "urgency_score": round(answers.urgency_score, 2),
+         "urgency_confidence": round(answers.urgency_confidence, 2),
+         "next_step": next_step(answers),
+@@ -69,7 +71,10 @@ def save_csv(rows: list[dict], path: Path) -> None:
+ def print_table(rows: list[dict]) -> None:
+     text_width = 58
+     jev_col = "-- Jev's answers " + "-" * 40
+-    cols = f"{'id':<4} {'text':<{text_width}} | {'team':<17} {'conf':<5} {'refund':<7} {'urg':<5} {'uconf':<6} | next_step"
++    cols = (
++        f"{'id':<4} {'text':<{text_width}} | {'team':<17} {'conf':<5} {'refund':<7} "
++        f"{'no_reply':<8} {'urg':<5} {'uconf':<6} | next_step"
++    )
+     print(f"{'':<{4 + text_width + 1}} | {jev_col[:53]:<53} | rules")
+     print(cols)
+     print("-" * len(cols))
+@@ -80,7 +85,7 @@ def print_table(rows: list[dict]) -> None:
+         print(
+             f"{row['id']:<4} {text:<{text_width}} | "
+             f"{row['team']:<17} {row['team_confidence']:<5} {row['wants_refund']:<7} "
+-            f"{row['urgency_score']:<5} {row['urgency_confidence']:<6} | {row['next_step']}"
++            f"{row['no_reply_needed']:<8} {row['urgency_score']:<5} {row['urgency_confidence']:<6} | {row['next_step']}"
+         )
+ 
+ 

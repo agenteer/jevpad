@@ -1,0 +1,17 @@
+{
+  "frozen_utc": "2026-09-25T02:20:28+00:00",
+  "git_commit": "125fa91ffa0e329aa7ee91a8d33a0984353e8a78",
+  "sha256": {
+    "config.json": "73d1ac71ac8dc21c31234efb403a03d590c0c876bf638c217ce328458a5d3d34",
+    "manifest.json": "2fde974c8d269b3b85c3518d9fcf3d86b5e9c003d140e9069c0f883a30ded947",
+    "run.py": "08dc9d85b006d0a800bfe71c13ab56c5791844518308c6cc6cabe26cb973a9c5"
+  },
+  "also_recorded_sha256": {
+    "score.py": "f80766439e2b7579fbef1e43f8c7d5471cd45c2b03db53811bbd4d2cc277428e",
+    "ANALYSIS_PLAN.md": "9ebac4cffa134365f526784affb557bdaaebd776595f948015740be1155c03a6",
+    "sample.py": "355b7b3697df40b441380200102ab034dee99b9bac314b91ed4ba06d1bd754ee",
+    "netbase.sh": "1409d9f340d6a1904a22a17e0b6c3d1dc3fbbe534c11957c96e9c6a865355fb8"
+  },
+  "plan": "ANALYSIS_PLAN.md: two back-to-back test passes, pass 1 is the headline; network baseline before, between, after.",
+  "note": "Frozen after dev runs and the F1 advisor review; no test-split call was made before this point."
+}

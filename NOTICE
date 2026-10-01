@@ -1,0 +1,7 @@
+Third-party material in this repository
+
+BANKING77 dataset
+The files in comparison/data/, the messages in comparison/manifest.json and the labels in comparison/results/ come from BANKING77 by PolyAI (Casanueva et al., 2020), licensed CC BY 4.0. Source: https://github.com/PolyAI-LDN/task-specific-datasets (commit 57ec275). The licence text is in comparison/data/LICENSE, with an attribution note in comparison/data/NOTICE.
+
+TypeSafe agent skill
+follow-along/.claude/skills/typesafe-ai/ and its copy under examples/agent-built-triage/project/ are TypeSafe's agent skill, MIT licence, © 2026 TypeSafe AI.

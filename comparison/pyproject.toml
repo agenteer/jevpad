@@ -1,0 +1,12 @@
+[project]
+name = "jev-banking77-comparison"
+version = "0.1.0"
+description = "Bounded Jev vs small-LLM comparison on a BANKING77 subset"
+requires-python = ">=3.11"
+dependencies = ["httpx>=0.27"]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

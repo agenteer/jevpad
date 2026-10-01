@@ -1,0 +1,5 @@
+Build a small tool that triages the customer messages in data/messages.csv with Jev. Start by reading TypeSafe's documentation index (https://docs.typesafe.ai/llms.txt) and the TypeSafe skill in .claude/skills. Use Python with uv.
+
+For each message, ask Jev three things: which team should handle it (a Choice), whether the customer wants their money back (a Noul), and how urgent it is (a Score). Suggest the teams, the question and the urgency levels, and put them in one file I can edit. Then suggest a next step for each message, like "billing queue", "urgent" or "needs a person", using a few simple rules I can read and change.
+
+Show me the message, Jev's answers and the next step in separate columns, so I can tell Jev's answers apart from the rules that pick the next step. My key is in .env, so don't print it. Run the tests and a live run on all ten messages. Then show me the results table with each message's text, tell me how to run the tool myself, and tell me which answers I should double-check.

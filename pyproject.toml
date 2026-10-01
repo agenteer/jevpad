@@ -1,0 +1,33 @@
+[project]
+name = "jevpad"
+version = "0.1.0"
+description = "A scratchpad for Jev questions: write them, run them, and see what Jev was asked and what it answered"
+requires-python = ">=3.11"
+dependencies = [
+  "typesafe-sdk==0.7.1",
+  "pyyaml>=6.0",
+  "rich>=13.0",
+  "python-dotenv>=1.0",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+jevpad = "jevpad.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["jevpad", "recipes"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+# follow-along/ is where a reader's coding agent builds its own project. Without this,
+# `uv init` there adds that project to this one as a workspace member and edits this file.
+[tool.uv.workspace]
+exclude = ["follow-along"]
