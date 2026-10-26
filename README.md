@@ -105,6 +105,24 @@ Questions: `recipes/reading/preferences.yaml`. Rules: `recipes/reading/policy.py
 
 `comparison/` runs Jev and GPT-5.4-mini on the same 154 labeled bank customer messages and reports accuracy, speed and cost. See [`comparison/README.md`](comparison/README.md).
 
+## Four-model comparison
+
+Jev, GPT-5.4-mini, OpenAI's Decisions API (GPT-6 Luna) and GPT-6 Luna classify the same 154 BANKING77 test messages into 77 labels through Vercel AI Gateway. The saved comparison ran on 25 October 2026 and reports accuracy, speed and cost.
+
+Set `AI_GATEWAY_API_KEY` in your environment or in `.env` at the repository root, then run:
+
+```bash
+./comparison/run_comparison_v2.sh
+```
+
+A full run sends 616 requests and takes about 7 minutes. The saved run cost about $0.093 through the gateway. Requests are billed to your gateway account.
+
+The comparison stops before its next reserved call would exceed a cumulative $1 budget. This includes charges from four-model results already in `comparison/results/`, including the shipped run. To reset the budget count, move previous `*-gateway-four*.jsonl` files out of that folder or delete them; if present, also move or delete `four-dev-probe.json`.
+
+The command writes JSONL answers, a summary, a Markdown table and an HTML report under `comparison/results/`, and prints the report location. To check the frozen settings without sending requests, add `--check`.
+
+The saved report is [`comparison/results/test-20261025T192735953472Z-gateway-four-live.report.html`](comparison/results/test-20261025T192735953472Z-gateway-four-live.report.html). Download it and open it in a browser.
+
 ## Build your own tool with a coding agent
 
 `follow-along/` is a starting folder for asking a coding agent (Claude Code, Codex or any other) to build a triage tool on Jev. `examples/agent-built-triage/` holds one such build: the prompts, the project the agent wrote, and its results.

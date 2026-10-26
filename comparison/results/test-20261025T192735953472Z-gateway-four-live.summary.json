@@ -1,0 +1,293 @@
+{
+  "file": "test-20261025T192735953472Z-gateway-four-live.jsonl",
+  "split": "test",
+  "examples": 154,
+  "models": {
+    "jev": {
+      "correct": 114,
+      "total": 154,
+      "answered": 154,
+      "correct_of_answered": "114/154",
+      "wilson95": [
+        0.6657547304559079,
+        0.8030697112628784
+      ],
+      "never_answered": [],
+      "refusals": [],
+      "served_ms": {
+        "n": 154,
+        "median": 156.05,
+        "p95": 306.0,
+        "worst": 1985.7
+      },
+      "usable_ms": {
+        "n": 154,
+        "median": 156.25,
+        "p95": 306.1,
+        "worst": 1985.8
+      },
+      "provider_ms": {
+        "n": 154,
+        "median": 71.0,
+        "p95": 117,
+        "worst": 522
+      },
+      "catalog_cost_usd": 0.0066597720000000004,
+      "charged_usd": 0.0066597720000000004,
+      "availability": {
+        "attempts_total": 154,
+        "attempts_refused_429": 0,
+        "timeouts_or_connection": 0,
+        "retries": 0,
+        "retry_after_sent": false,
+        "refusal_message": null
+      }
+    },
+    "llm": {
+      "correct": 110,
+      "total": 154,
+      "answered": 154,
+      "correct_of_answered": "110/154",
+      "wilson95": [
+        0.6384006709801859,
+        0.7797400473095426
+      ],
+      "never_answered": [],
+      "refusals": [],
+      "served_ms": {
+        "n": 154,
+        "median": 744.2,
+        "p95": 1115.3,
+        "worst": 6627.4
+      },
+      "usable_ms": {
+        "n": 154,
+        "median": 744.4000000000001,
+        "p95": 1115.4,
+        "worst": 6627.6
+      },
+      "provider_ms": {
+        "n": 0,
+        "median": null,
+        "p95": null,
+        "worst": null
+      },
+      "catalog_cost_usd": 0.06721875,
+      "charged_usd": 0.06721875,
+      "availability": {
+        "attempts_total": 154,
+        "attempts_refused_429": 0,
+        "timeouts_or_connection": 0,
+        "retries": 0,
+        "retry_after_sent": false,
+        "refusal_message": null
+      }
+    },
+    "decisions": {
+      "correct": 107,
+      "total": 154,
+      "answered": 153,
+      "correct_of_answered": "107/153",
+      "wilson95": [
+        0.6180678263992594,
+        0.7620600993186755
+      ],
+      "never_answered": [
+        "test-050"
+      ],
+      "refusals": [
+        "test-050"
+      ],
+      "served_ms": {
+        "n": 153,
+        "median": 254.7,
+        "p95": 560.9,
+        "worst": 2815.5
+      },
+      "usable_ms": {
+        "n": 153,
+        "median": 255.2,
+        "p95": 561.1,
+        "worst": 2815.6
+      },
+      "provider_ms": {
+        "n": 153,
+        "median": 138,
+        "p95": 418,
+        "worst": 1298
+      },
+      "catalog_cost_usd": 0.0101362,
+      "charged_usd": 0.0101362,
+      "availability": {
+        "attempts_total": 154,
+        "attempts_refused_429": 0,
+        "timeouts_or_connection": 0,
+        "retries": 0,
+        "retry_after_sent": false,
+        "refusal_message": null
+      }
+    },
+    "luna": {
+      "correct": 115,
+      "total": 154,
+      "answered": 154,
+      "correct_of_answered": "115/154",
+      "wilson95": [
+        0.6726392711633615,
+        0.8088561014126894
+      ],
+      "never_answered": [],
+      "refusals": [],
+      "served_ms": {
+        "n": 154,
+        "median": 1169.1999999999998,
+        "p95": 1867.7,
+        "worst": 2247.3
+      },
+      "usable_ms": {
+        "n": 154,
+        "median": 1169.4,
+        "p95": 1867.8,
+        "worst": 2247.7
+      },
+      "provider_ms": {
+        "n": 0,
+        "median": null,
+        "p95": null,
+        "worst": null
+      },
+      "catalog_cost_usd": 0.008724,
+      "charged_usd": 0.008724,
+      "availability": {
+        "attempts_total": 154,
+        "attempts_refused_429": 0,
+        "timeouts_or_connection": 0,
+        "retries": 0,
+        "retry_after_sent": false,
+        "refusal_message": null
+      }
+    }
+  },
+  "pairs": {
+    "jev/llm": {
+      "all": {
+        "n": 154,
+        "both_correct": 100,
+        "only_a": 14,
+        "only_b": 10,
+        "both_wrong": 30,
+        "exact_mcnemar_p": 0.5412561893463135,
+        "wording": "no clear difference on this sample"
+      },
+      "both_answered": {
+        "n": 154,
+        "both_correct": 100,
+        "only_a": 14,
+        "only_b": 10,
+        "both_wrong": 30,
+        "exact_mcnemar_p": 0.5412561893463135,
+        "wording": "no clear difference on this sample"
+      }
+    },
+    "jev/decisions": {
+      "all": {
+        "n": 154,
+        "both_correct": 101,
+        "only_a": 13,
+        "only_b": 6,
+        "both_wrong": 34,
+        "exact_mcnemar_p": 0.1670684814453125,
+        "wording": "no clear difference on this sample"
+      },
+      "both_answered": {
+        "n": 153,
+        "both_correct": 101,
+        "only_a": 12,
+        "only_b": 6,
+        "both_wrong": 34,
+        "exact_mcnemar_p": 0.237884521484375,
+        "wording": "no clear difference on this sample"
+      }
+    },
+    "jev/luna": {
+      "all": {
+        "n": 154,
+        "both_correct": 108,
+        "only_a": 6,
+        "only_b": 7,
+        "both_wrong": 33,
+        "exact_mcnemar_p": 1.0,
+        "wording": "no clear difference on this sample"
+      },
+      "both_answered": {
+        "n": 154,
+        "both_correct": 108,
+        "only_a": 6,
+        "only_b": 7,
+        "both_wrong": 33,
+        "exact_mcnemar_p": 1.0,
+        "wording": "no clear difference on this sample"
+      }
+    },
+    "llm/decisions": {
+      "all": {
+        "n": 154,
+        "both_correct": 99,
+        "only_a": 11,
+        "only_b": 8,
+        "both_wrong": 36,
+        "exact_mcnemar_p": 0.6476058959960938,
+        "wording": "no clear difference on this sample"
+      },
+      "both_answered": {
+        "n": 153,
+        "both_correct": 99,
+        "only_a": 10,
+        "only_b": 8,
+        "both_wrong": 36,
+        "exact_mcnemar_p": 0.8145294189453125,
+        "wording": "no clear difference on this sample"
+      }
+    },
+    "llm/luna": {
+      "all": {
+        "n": 154,
+        "both_correct": 102,
+        "only_a": 8,
+        "only_b": 13,
+        "both_wrong": 31,
+        "exact_mcnemar_p": 0.38331031799316406,
+        "wording": "no clear difference on this sample"
+      },
+      "both_answered": {
+        "n": 154,
+        "both_correct": 102,
+        "only_a": 8,
+        "only_b": 13,
+        "both_wrong": 31,
+        "exact_mcnemar_p": 0.38331031799316406,
+        "wording": "no clear difference on this sample"
+      }
+    },
+    "decisions/luna": {
+      "all": {
+        "n": 154,
+        "both_correct": 100,
+        "only_a": 7,
+        "only_b": 15,
+        "both_wrong": 32,
+        "exact_mcnemar_p": 0.13380050659179688,
+        "wording": "no clear difference on this sample"
+      },
+      "both_answered": {
+        "n": 153,
+        "both_correct": 100,
+        "only_a": 7,
+        "only_b": 14,
+        "both_wrong": 32,
+        "exact_mcnemar_p": 0.18924713134765625,
+        "wording": "no clear difference on this sample"
+      }
+    }
+  }
+}

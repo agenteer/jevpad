@@ -1,0 +1,28 @@
+{
+  "frozen_utc": "2026-10-25T18:30:17.730347+00:00",
+  "git_commit": "c8076feb59fbaf12cf66800db41c955d28fb0104",
+  "owner_selected_jev_model": "typesafe-ai/jev",
+  "declared_before_any_test_call": false,
+  "sha256": {
+    "config-gateway-four.json": "dc7d0cafba36d0efc2956bb9cb62b027238058376c19a20bd3f8bc5598746d95",
+    "manifest.json": "2fde974c8d269b3b85c3518d9fcf3d86b5e9c003d140e9069c0f883a30ded947",
+    "run.py": "08dc9d85b006d0a800bfe71c13ab56c5791844518308c6cc6cabe26cb973a9c5",
+    "rerun_via_gateway.py": "3542a51059fbebcae0538f725cf847a479c489c322d7ff0a6bdfa2c981617ddf",
+    "rerun_gateway_temp0.py": "2931912ff13b7ff931b430b92f8e3b652b546f52527caca70852c0b79aff139b",
+    "run_four.py": "aa48e33bc4342731f44a7561f247628cb08c21cc12001475e9efa3a57c351729",
+    "score_four.py": "de487c27c64df11ac3cab836534e90b56335d5c88686cc17dca88e0ef9f43b43",
+    "ANALYSIS_PLAN.md": "92d9d9cd21e1c79f41771e1e619359882f118fdbb27a91183c2f0c1bc9552dc9",
+    "netbase.sh": "828a6d5b1c1b2674f1191e565dab712db9cbf354636e02271ae6c3c0d1785b98",
+    "freeze_four.py": "26bc5b39b495c52ce89c93faef3fef9649832d3895d2f70a1206a4928f132e6c",
+    "run_decisions.py": "0b96f7533441ae79c09c4b01863d5ec9738f8664f948dc495fc16c0f466c6f57",
+    "report_four_html.py": "01cc8c7e3d2f5ea0e1032ad291a041392d335f17af42cdb45485465c4504c3c1",
+    "report_html.py": "b155b0fd7466fd2bf6cd74cc29af45ffbcb639ac254a10cb293b30434a4fe502",
+    "score.py": "5cac164d6371550e552c10e0823a9289e14ee58ca454d57728768ef63c95c6ee",
+    "score_gateway.py": "60f8d7d9353dae1daf463093a2ea5591bf3bf9e4f557722c556298e972773f8e",
+    "run_comparison_v2.py": "abf44b762e8208eac24c5e15f2b2df84f78f9ffce7d6acf03dafa41e5cda5680",
+    "run_comparison_v2.sh": "924272c09b09837c0f7e7202b5f5ec70ad9d0d0148d04646302be89b98e9dd66",
+    "FOUR_MODEL_PLAN.md": "383ce3b80447fc4477229b6174491443327f3786919cf034d482e80a3cc401dc"
+  },
+  "plan": "ANALYSIS_PLAN.md accuracy denominators, Wilson intervals and independent exact McNemar tests apply to all six pairs; FOUR_MODEL_PLAN.md describes this comparison.",
+  "export_note": "Source and configuration hashes describe this portable export, not a new experiment. The saved result header preserves the original run hashes. Report wording and setup notes were revised after the 25 October 2026 run; all answers, timing, charges and scores are unchanged."
+}

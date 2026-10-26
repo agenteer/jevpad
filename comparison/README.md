@@ -8,6 +8,10 @@ The messages come from BANKING77, a public dataset of customer messages to a ban
 
 Both models get the same message, the same one-sentence instruction and the same 77 labels. Jev gets them as one Choice question. GPT-5.4-mini gets them as structured output limited to the 77 labels, with reasoning effort `none` and temperature 0, and a one-line system message. Both are called through Vercel AI Gateway. The settings are in `config-gateway-temp0.json`.
 
+## Four-model comparison
+
+For Jev, GPT-5.4-mini, OpenAI's Decisions API and GPT-6 Luna, run `./comparison/run_comparison_v2.sh` from the repository root. See the root [README](../README.md#four-model-comparison) for setup and run expectations, and open the [saved four-model report](results/test-20261025T192735953472Z-gateway-four-live.report.html) in a browser. The two-model instructions below describe the September comparison.
+
 ## Run it
 
 You need a Vercel AI Gateway key with credits: either `AI_GATEWAY_API_KEY` in your shell, or the `.env` in the main folder set up for the Vercel route. A run sends 308 requests and takes about three to seven minutes; ours cost about \$0.07.
